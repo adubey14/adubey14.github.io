@@ -1,0 +1,825 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Publications</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script type="text/javascript">
+<!--
+// QuickSearch script for JabRef HTML export 
+// Version: 3.0
+//
+// Copyright (c) 2006-2011, Mark Schenk
+//
+// This software is distributed under a Creative Commons Attribution 3.0 License
+// http://creativecommons.org/licenses/by/3.0/
+//
+// Features:
+// - intuitive find-as-you-type searching
+//    ~ case insensitive
+//    ~ ignore diacritics (optional)
+//
+// - search with/without Regular Expressions
+// - match BibTeX key
+//
+
+// Search settings
+var searchAbstract = true;	// search in abstract
+var searchReview = true;	// search in review
+
+var noSquiggles = true; 	// ignore diacritics when searching
+var searchRegExp = false; 	// enable RegExp searches
+
+
+if (window.addEventListener) {
+	window.addEventListener("load",initSearch,false); }
+else if (window.attachEvent) {
+	window.attachEvent("onload", initSearch); }
+
+function initSearch() {
+	// check for quick search table and searchfield
+	if (!document.getElementById('qs_table')||!document.getElementById('quicksearch')) { return; }
+
+	// load all the rows and sort into arrays
+	loadTableData();
+	
+	//find the query field
+	qsfield = document.getElementById('qs_field');
+
+	// previous search term; used for speed optimisation
+	prevSearch = '';
+
+	//find statistics location
+	stats = document.getElementById('stat');
+	setStatistics(-1);
+	
+	// set up preferences
+	initPreferences();
+
+	// shows the searchfield
+	document.getElementById('quicksearch').style.display = 'block';
+	document.getElementById('qs_field').onkeyup = quickSearch;
+}
+
+function loadTableData() {
+	// find table and appropriate rows
+	searchTable = document.getElementById('qs_table');
+	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+	// split all rows into entryRows and infoRows (e.g. abstract, review, bibtex)
+	entryRows = new Array(); infoRows = new Array(); absRows = new Array(); revRows = new Array();
+
+	// get data from each row
+	entryRowsData = new Array(); absRowsData = new Array(); revRowsData = new Array(); 
+	
+	BibTeXKeys = new Array();
+	
+	for (var i=0, k=0, j=0; i<allRows.length;i++) {
+		if (allRows[i].className.match(/entry/)) {
+			entryRows[j] = allRows[i];
+			entryRowsData[j] = stripDiacritics(getTextContent(allRows[i]));
+			allRows[i].id ? BibTeXKeys[j] = allRows[i].id : allRows[i].id = 'autokey_'+j;
+			j ++;
+		} else {
+			infoRows[k++] = allRows[i];
+			// check for abstract/review
+			if (allRows[i].className.match(/abstract/)) {
+				absRows.push(allRows[i]);
+				absRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
+			} else if (allRows[i].className.match(/review/)) {
+				revRows.push(allRows[i]);
+				revRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
+			}
+		}
+	}
+	//number of entries and rows
+	numEntries = entryRows.length;
+	numInfo = infoRows.length;
+	numAbs = absRows.length;
+	numRev = revRows.length;
+}
+
+function quickSearch(){
+	
+	tInput = qsfield;
+
+	if (tInput.value.length == 0) {
+		showAll();
+		setStatistics(-1);
+		qsfield.className = '';
+		return;
+	} else {
+		t = stripDiacritics(tInput.value);
+
+		if(!searchRegExp) { t = escapeRegExp(t); }
+			
+		// only search for valid RegExp
+		try {
+			textRegExp = new RegExp(t,"i");
+			closeAllInfo();
+			qsfield.className = '';
+		}
+			catch(err) {
+			prevSearch = tInput.value;
+			qsfield.className = 'invalidsearch';
+			return;
+		}
+	}
+	
+	// count number of hits
+	var hits = 0;
+
+	// start looping through all entry rows
+	for (var i = 0; cRow = entryRows[i]; i++){
+
+		// only show search the cells if it isn't already hidden OR if the search term is getting shorter, then search all
+		if(cRow.className.indexOf('noshow')==-1 || tInput.value.length <= prevSearch.length){
+			var found = false; 
+
+			if (entryRowsData[i].search(textRegExp) != -1 || BibTeXKeys[i].search(textRegExp) != -1){ 
+				found = true;
+			} else {
+				if(searchAbstract && absRowsData[i]!=undefined) {
+					if (absRowsData[i].search(textRegExp) != -1){ found=true; } 
+				}
+				if(searchReview && revRowsData[i]!=undefined) {
+					if (revRowsData[i].search(textRegExp) != -1){ found=true; } 
+				}
+			}
+			
+			if (found){
+				cRow.className = 'entry show';
+				hits++;
+			} else {
+				cRow.className = 'entry noshow';
+			}
+		}
+	}
+
+	// update statistics
+	setStatistics(hits)
+	
+	// set previous search value
+	prevSearch = tInput.value;
+}
+
+
+// Strip Diacritics from text
+// http://stackoverflow.com/questions/990904/javascript-remove-accents-in-strings
+
+// String containing replacement characters for stripping accents 
+var stripstring = 
+    'AAAAAAACEEEEIIII'+
+    'DNOOOOO.OUUUUY..'+
+    'aaaaaaaceeeeiiii'+
+    'dnooooo.ouuuuy.y'+
+    'AaAaAaCcCcCcCcDd'+
+    'DdEeEeEeEeEeGgGg'+
+    'GgGgHhHhIiIiIiIi'+
+    'IiIiJjKkkLlLlLlL'+
+    'lJlNnNnNnnNnOoOo'+
+    'OoOoRrRrRrSsSsSs'+
+    'SsTtTtTtUuUuUuUu'+
+    'UuUuWwYyYZzZzZz.';
+
+function stripDiacritics(str){
+
+    if(noSquiggles==false){
+        return str;
+    }
+
+    var answer='';
+    for(var i=0;i<str.length;i++){
+        var ch=str[i];
+        var chindex=ch.charCodeAt(0)-192;   // Index of character code in the strip string
+        if(chindex>=0 && chindex<stripstring.length){
+            // Character is within our table, so we can strip the accent...
+            var outch=stripstring.charAt(chindex);
+            // ...unless it was shown as a '.'
+            if(outch!='.')ch=outch;
+        }
+        answer+=ch;
+    }
+    return answer;
+}
+
+// http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+// NOTE: must escape every \ in the export code because of the JabRef Export...
+function escapeRegExp(str) {
+  return str.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+function toggleInfo(articleid,info) {
+
+	var entry = document.getElementById(articleid);
+	var abs = document.getElementById('abs_'+articleid);
+	var rev = document.getElementById('rev_'+articleid);
+	var bib = document.getElementById('bib_'+articleid);
+	
+	if (abs && info == 'abstract') {
+		abs.className.indexOf('noshow') == -1?abs.className = 'abstract noshow':abs.className = 'abstract show';
+	} else if (rev && info == 'review') {
+		rev.className.indexOf('noshow') == -1?rev.className = 'review noshow':rev.className = 'review show';
+	} else if (bib && info == 'bibtex') {
+		bib.className.indexOf('noshow') == -1?bib.className = 'bibtex noshow':bib.className = 'bibtex show';
+	} else { 
+		return;
+	}
+
+	// check if one or the other is available
+	var revshow; var absshow; var bibshow;
+	(abs && abs.className.indexOf('noshow') == -1)? absshow = true: absshow = false;
+	(rev && rev.className.indexOf('noshow') == -1)? revshow = true: revshow = false;	
+	(bib && bib.className.indexOf('noshow') == -1)? bibshow = true: bibshow = false;
+	
+	// highlight original entry
+	if(entry) {
+		if (revshow || absshow || bibshow) {
+		entry.className = 'entry highlight show';
+		} else {
+		entry.className = 'entry show';
+		}
+	}
+	
+	// When there's a combination of abstract/review/bibtex showing, need to add class for correct styling
+	if(absshow) {
+		(revshow||bibshow)?abs.className = 'abstract nextshow':abs.className = 'abstract';
+	} 
+	if (revshow) {
+		bibshow?rev.className = 'review nextshow': rev.className = 'review';
+	}	
+	
+}
+
+function setStatistics (hits) {
+	if(hits < 0) { hits=numEntries; }
+	if(stats) { stats.firstChild.data = hits + '/' + numEntries}
+}
+
+function getTextContent(node) {
+	// Function written by Arve Bersvendsen
+	// http://www.virtuelvis.com
+	
+	if (node.nodeType == 3) {
+	return node.nodeValue;
+	} // text node
+	if (node.nodeType == 1 && node.className != "infolinks") { // element node
+	var text = [];
+	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
+		text.push(getTextContent(chld));
+	}
+	return text.join("");
+	} return ""; // some other node, won't contain text nodes.
+}
+
+function showAll(){
+	closeAllInfo();
+	location.reload();
+	//for (var i = 0; i < numEntries; i++){ entryRows[i].className = 'entry show'; }
+}
+
+function closeAllInfo(){
+	for (var i=0; i < numInfo; i++){
+		if (infoRows[i].className.indexOf('noshow') ==-1) {
+			infoRows[i].className = infoRows[i].className + ' noshow';
+		}
+	}
+}
+
+function clearQS() {
+	qsfield.value = '';
+	showAll();
+}
+
+function redoQS(){
+	showAll();
+	quickSearch(qsfield);
+}
+
+function updateSetting(obj){
+	var option = obj.id;
+	var checked = obj.value;
+
+	switch(option)
+	 {
+	 case "opt_searchAbs":
+	   searchAbstract=!searchAbstract;
+	   redoQS();
+	   break;
+	 case "opt_searchRev":
+	   searchReview=!searchReview;
+	   redoQS();
+	   break;
+	 case "opt_useRegExp":
+	   searchRegExp=!searchRegExp;
+	   redoQS();
+	   break;
+	 case "opt_noAccents":
+	   noSquiggles=!noSquiggles;
+	   loadTableData();
+	   redoQS();
+	   break;
+	 }
+}
+
+function initPreferences(){
+	if(searchAbstract){document.getElementById("opt_searchAbs").checked = true;}
+	if(searchReview){document.getElementById("opt_searchRev").checked = true;}
+	if(noSquiggles){document.getElementById("opt_noAccents").checked = true;}
+	if(searchRegExp){document.getElementById("opt_useRegExp").checked = true;}
+	
+	if(numAbs==0) {document.getElementById("opt_searchAbs").parentNode.style.display = 'none';}
+	if(numRev==0) {document.getElementById("opt_searchRev").parentNode.style.display = 'none';}	
+}
+
+function toggleSettings(){
+	var togglebutton = document.getElementById('showsettings');
+	var settings = document.getElementById('settings');
+	
+	if(settings.className == "hidden"){
+		settings.className = "show";
+		togglebutton.innerText = "close settings";
+		togglebutton.textContent = "close settings";
+	}else{
+		settings.className = "hidden";
+		togglebutton.innerText = "settings...";		
+		togglebutton.textContent = "settings...";
+	}
+}
+
+-->
+</script>
+<style type="text/css">
+form#quicksearch { width: auto; border-style: solid; border-color: gray; border-width: 1px 0px; padding: 0.7em 0.5em; display:none; position:relative; }
+span#searchstat {padding-left: 1em;}
+div#settings {*  margin-top:0.7em; /border-bottom: 1px transparent solid; background-color: #efefef; border: 1px grey solid; */ }
+div#settings ul {margin: 0; padding: 0; }
+div#settings li {margin: 0; padding: 0 0em 0 0; display: inline; list-style: none; }
+div#settings li + li { border-left: 0px #efefef solid; padding-left: 0em;}
+div#settings input { margin-bottom: 0px;}
+div#settings.hidden {display:none;}
+#showsettings { border: 0px grey solid; padding: 0 0em; float:right; line-height: 1.6em; text-align: right; }
+#showsettings:hover { cursor: pointer; }
+.invalidsearch { background-color: red; }
+input[type="button"] { background-color: #efefef; border: 1px #2E2E2E solid;}
+table { border: 0px gray none; width: 100%; empty-cells: show; border-spacing: 0em 0.0em; margin: 0em 0em; }
+th, td { border: none; padding: 0em; vertical-align: top; text-align: justify; }
+td a { color: navy; text-decoration: none; }
+td a:hover  { text-decoration: underline; }
+tr.noshow { display: none;}
+tr.highlight td { background-color: #EFEFEF; border-top: 2px #2E2E2E solid; font-weight: bold; }
+tr.abstract td, tr.review td, tr.bibtex td { background-color: #EFEFEF; text-align: justify; border-bottom: 2px #2E2E2E solid; }
+tr.nextshow td { border-bottom-style: none; }
+tr.bibtex pre { width: 100%; overflow: auto; white-space: pre-wrap;}
+p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
+
+@media print {
+	p.infolinks, #qs_settings, #quicksearch, t.bibtex { display: none !important; }
+	tr { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+
+<div id="page">
+		<div id="header">
+			<div>
+				<div id="logo">Abhishek Dubey</div>
+				<ul id="navigation">
+					<li>
+						<a href="teaching.html">teaching</a>
+					</li>
+					<li>
+						<a href="project.html">projects</a>
+					</li>
+					<li class="selected">
+						<a href="publications.html">publications</a>
+					</li>
+					<li>
+						<a href="research.html">research</a>
+					</li>
+					<li>
+						<a href="index.html">home</a>
+					</li>
+
+				</ul>
+			</div>
+			<span class="shadow"></span>
+		</div>
+		<div id="contents">
+		<form action="" id="quicksearch">
+<input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
+<span id="searchstat">Matching entries: <span id="stat">0</span></span>
+<div id="showsettings" onclick="toggleSettings()">settings...</div>
+<div id="settings" class="hidden">
+<ul>
+<li><input type="checkbox" class="search_setting" id="opt_searchAbs" onchange="updateSetting(this)"><label for="opt_searchAbs"> include abstract</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_searchRev" onchange="updateSetting(this)"><label for="opt_searchRev"> include review</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_useRegExp" onchange="updateSetting(this)"><label for="opt_useRegExp"> use RegExp</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></li>
+</ul>
+</div>
+</form>
+		<div class="body">
+<table id="qs_table" border="1">
+<tbody>
+<tr><td><h3>2015</h3></td></tr>
+
+<tr id="7155770" class="entry">
+	<td>Mahadevan N, Dubey A, Chhokra A, Guo H and Karsai G (2015). <i>Using temporal causal models to isolate failures in power system protection devices</i>.  Instrumentation Measurement Magazine, IEEE., August, 2015.  Vol. 18(4), pp. 28-39.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('7155770','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1109/MIM.2015.7155770" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_7155770" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{7155770,
+  author = {Mahadevan, N. and Dubey, A. and Chhokra, A. and Guo, H. and Karsai, G.},
+  title = {Using temporal causal models to isolate failures in power system protection devices},
+  journal = {Instrumentation Measurement Magazine, IEEE},
+  year = {2015},
+  volume = {18},
+  number = {4},
+  pages = {28-39},
+  doi = {10.1109/MIM.2015.7155770}
+}
+</pre></td>
+</tr>
+
+<tr id="Balasubramanian:2015:DM:2798457.2798672" class="entry">
+	<td>Balasubramanian D, Dubey A, Otte W, Levendovszky T, Gokhale A, Kumar P, Emfinger W and Karsai G (2015). <i>DREMS ML: A Wide Spectrum Architecture Design Language for Distributed Computing Platform</i>.  Sci. Comput. Program.. Amsterdam, The Netherlands, The Netherlands, August, 2015.  Vol. 106(C), pp. 3-29. Elsevier North-Holland, Inc..
+	<p class="infolinks">[<a href="javascript:toggleInfo('Balasubramanian:2015:DM:2798457.2798672','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Balasubramanian:2015:DM:2798457.2798672','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1016/j.scico.2015.04.002" target="_blank">DOI</a>] [<a href="http://dx.doi.org/10.1016/j.scico.2015.04.002" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_Balasubramanian:2015:DM:2798457.2798672" class="abstract noshow">
+	<td><b>Abstract</b>: Complex sensing, processing and control applications running on distributed platforms are difficult to design, develop, analyze, integrate, deploy and operate, especially if resource constraints, fault tolerance and security issues are to be addressed. While technology exists today for engineering distributed, real-time component-based applications, many problems remain unsolved by existing tools. Model-driven development techniques are powerful, but there are very few existing and complete tool chains that offer an end-to-end solution to developers, from design to deployment. There is a need for an integrated model-driven development environment that addresses all phases of application lifecycle including design, development, verification, analysis, integration, deployment, operation and maintenance, with supporting automation in every phase. Arguably, a centerpiece of such a model-driven environment is the modeling language. To that end, this paper presents a wide-spectrum architecture design language called DREMS ML that itself is an integrated collection of individual domain-specific sub-languages. We claim that the language promotes “correct-by-construction” software development and integration by supporting each individual phase of the application lifecycle. Using a case study, we demonstrate how the design of DREMS ML impacts the development of embedded systems.</td>
+</tr>
+<tr id="bib_Balasubramanian:2015:DM:2798457.2798672" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Balasubramanian:2015:DM:2798457.2798672,
+  author = {Balasubramanian, Daniel and Dubey, Abhishek and Otte, William and Levendovszky, Tihamer and Gokhale, Aniruddha and Kumar, Pranav and Emfinger, William and Karsai, Gabor},
+  title = {DREMS ML: A Wide Spectrum Architecture Design Language for Distributed Computing Platform},
+  journal = {Sci. Comput. Program.},
+  publisher = {Elsevier North-Holland, Inc.},
+  year = {2015},
+  volume = {106},
+  number = {C},
+  pages = {3--29},
+  url = {http://dx.doi.org/10.1016/j.scico.2015.04.002},
+  doi = {10.1016/j.scico.2015.04.002}
+}
+</pre></td>
+</tr>
+
+<tr id="IJPHM15" class="entry">
+	<td>Nannapaneni S, Dubey A, Abdelwahed S, Mahadevan S, Neema S and Bapty T (2015). <i>Mission-based reliability prediction in component-based systems</i>.  International Journal of Prognostics and Health Management. (Under Review)
+	<p class="infolinks"> [<a href="javascript:toggleInfo('IJPHM15','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_IJPHM15" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{IJPHM15,
+  author = {Saideep Nannapaneni and Abhishek Dubey and Sherif Abdelwahed and Sankaran Mahadevan and Sandeep Neema and Ted Bapty},
+  title = {Mission-based reliability prediction in component-based systems},
+  journal = {International Journal of Prognostics and Health Management},
+  year = {2015},
+  note = {(Under Review)}
+}
+</pre></td>
+</tr>
+
+<tr id="JOSSIII" class="entry">
+	<td>Levendovszky T, Dubey A, Otte WR, Balasubramanian Daniel andand Emfinger W, Kumar P and Karsai G (2015). <i>Achieving Resilience in Distributed Software Systems via Self-Reconfiguration</i>.  Elsevier Journal of Systems and Software. (Under review)
+	<p class="infolinks"> [<a href="javascript:toggleInfo('JOSSIII','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_JOSSIII" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{JOSSIII,
+  author = {Levendovszky, Tihamer and Dubey, Abhishek and Otte, William R. and Balasubramanian, Daniel andand Emfinger, William and Kumar, Pranav and Karsai, Gabor},
+  title = {Achieving Resilience in Distributed Software Systems via Self-Reconfiguration},
+  journal = {Elsevier Journal of Systems and Software},
+  year = {2015},
+  note = {(Under review)}
+}
+</pre></td>
+</tr>
+
+<tr id="JOSSIV" class="entry">
+	<td>Goncalo M, Moondra A, Dubey A, Bhattacharjee A and Koutsoukos X (2015). <i>Computation and Communication Evaluation of an Authentication Mechanism for Time-Triggered Networked Control Systems: An Empirical Study</i>.  Computers and Security. (Under review)
+	<p class="infolinks"> [<a href="javascript:toggleInfo('JOSSIV','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_JOSSIV" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{JOSSIV,
+  author = {Goncalo, Martin and Moondra, Arul and Dubey, Abhishek and Bhattacharjee, Anirban and Koutsoukos, Xenofon},
+  title = {Computation and Communication Evaluation of an Authentication Mechanism for Time-Triggered Networked Control Systems: An Empirical Study},
+  journal = {Computers and Security},
+  year = {2015},
+  note = {(Under review)}
+}
+</pre></td>
+</tr>
+
+<tr id="sefsasIII" class="entry">
+	<td>Emfinger W, Kumar P, Dubey A and Karsai G (2015). <i>Towards Assurances in Self-Adaptive, Dynamic, Distributed Real-time Embedded Systems</i>, In Software Engineering for Self-Adaptive Systems III.  Springer Berlin Heidelberg.(Under review)
+	<p class="infolinks"> [<a href="javascript:toggleInfo('sefsasIII','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_sefsasIII" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{sefsasIII,
+  author = {Emfinger, William and Kumar, Pranav and Dubey, Abhishek and Karsai, Gabor},
+  title = {Towards Assurances in Self-Adaptive, Dynamic, Distributed Real-time Embedded Systems},
+  booktitle = {Software Engineering for Self-Adaptive Systems III},
+  publisher = {Springer Berlin Heidelberg},
+  year = {2015},
+  note = {(Under review)}
+}
+</pre></td>
+</tr>
+<tr><td><h3>2014</h3></td></tr>
+
+<tr id="6671577" class="entry">
+	<td>Levendovszky T, Dubey A, Otte WR, Balasubramanian D, Coglio A, Nyako S, Emfinger W, Kumar P, Gokhale A and Karsai G (2014). <i>Distributed Real-Time Managed Systems: A Model-Driven Distributed Secure Information Architecture Platform for Managed Embedded Systems</i>.  Software, IEEE., Mar, 2014.  Vol. 31(2), pp. 62-69.
+	<p class="infolinks">[<a href="javascript:toggleInfo('6671577','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('6671577','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1109/MS.2013.143" target="_blank">DOI</a>] [<a href="http://www.isis.vanderbilt.edu/sites/default/files/f6paper.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_6671577" class="abstract noshow">
+	<td><b>Abstract</b>: Architecting software for a cloud computing platform built from mobile embedded devices incurs many challenges that aren't present in traditional cloud computing. Both effectively managing constrained resources and isolating applications without adverse performance effects are needed. A practical design- and runtime solution incorporates modern software development practices and technologies along with novel approaches to address these challenges. The patterns and principles manifested in this system can potentially serve as guidelines for current and future practitioners in this field.</td>
+</tr>
+<tr id="bib_6671577" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{6671577,
+  author = {Levendovszky, Tihamer and Dubey, Abhishek and Otte, William R. and Balasubramanian, Daniel and Coglio, Alessandro and Nyako, Sandor and Emfinger, William and Kumar, Pranav and Gokhale, Aniruddha and Karsai, Gabor},
+  title = {Distributed Real-Time Managed Systems: A Model-Driven Distributed Secure Information Architecture Platform for Managed Embedded Systems},
+  journal = {Software, IEEE},
+  year = {2014},
+  volume = {31},
+  number = {2},
+  pages = {62-69},
+  url = {http://www.isis.vanderbilt.edu/sites/default/files/f6paper.pdf},
+  doi = {10.1109/MS.2013.143}
+}
+</pre></td>
+</tr>
+<tr><td><h3>2013</h3></td></tr>
+
+<tr id="book1" class="entry">
+	<td>Dubey A, Karsai G and Mahadevan N (2013). <i>Fault-Adaptivity in Hard Real-Time Component-Based Software Systems</i>, In Software Engineering for Self-Adaptive Systems II.  Vol. 7475, pp. 294-323. Springer Berlin Heidelberg.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('book1','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1007/978-3-642-35813-5_12" target="_blank">DOI</a>] [<a href="http://dx.doi.org/10.1007/978-3-642-35813-5_12" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_book1" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@incollection{book1,
+  author = {Dubey, Abhishek and Karsai, Gabor and Mahadevan, Nagabhushan},
+  editor = {Lemos, Rogerio and Giese, Holger and Muller, HausiA. and Shaw, Mary},
+  title = {Fault-Adaptivity in Hard Real-Time Component-Based Software Systems},
+  booktitle = {Software Engineering for Self-Adaptive Systems II},
+  publisher = {Springer Berlin Heidelberg},
+  year = {2013},
+  volume = {7475},
+  pages = {294-323},
+  url = {http://dx.doi.org/10.1007/978-3-642-35813-5_12},
+  doi = {10.1007/978-3-642-35813-5_12}
+}
+</pre></td>
+</tr>
+
+<tr id="mykey" class="entry">
+	<td>Mahadevan N, Dubey A, Balasubramanian D and Karsai G (2013). <i>Deliberative, search-based mitigation strategies for model-based software health management</i>.  Innovations in Systems and Software Engineering.  Vol. 9(4), pp. 293-318. Springer London.
+	<p class="infolinks">[<a href="javascript:toggleInfo('mykey','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('mykey','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1007/s11334-013-0215-x" target="_blank">DOI</a>] [<a href="http://dx.doi.org/10.1007/s11334-013-0215-x" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_mykey" class="abstract noshow">
+	<td><b>Abstract</b>: Rising software complexity in aerospace systems makes them very difficult to analyze and prepare for all possible fault scenarios at design time; therefore, classical run-time fault tolerance techniques such as self-checking pairs and triple modular redundancy are used. However, several recent incidents have made it clear that existing software fault tolerance techniques alone are not sufficient. To improve system dependability, simpler, yet formally specified and verified run-time monitoring, diagnosis, and fault mitigation capabilities are needed. Such architectures are already in use for managing the health of vehicles and systems. Software health management is the application of these techniques to software systems. In this paper, we briefly describe the software health management techniques and architecture developed by our research group. The foundation of the architecture is a real-time component framework (built upon ARINC-653 platform services) that defines a model of computation for software components. Dedicated architectural elements: the Component Level Health Manager (CLHM) and System Level Health Manager (SLHM) provide the health management services: anomaly detection, fault source isolation, and fault mitigation. The SLHM includes a diagnosis engine that (1) uses a Timed Failure Propagation Graph (TFPG) model derived from the component assembly model, (2) reasons about cascading fault effects in the system, and (3) isolates the fault source component(s). Thereafter, the appropriate system-level mitigation action is taken. The main focus of this article is the description of the fault mitigation architecture that uses goal-based deliberative reasoning to determine the best mitigation actions for recovering the system from the identified failure mode.</td>
+</tr>
+<tr id="bib_mykey" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{mykey,
+  author = {Mahadevan, Nagabhushan and Dubey, Abhishek and Balasubramanian, Daniel and Karsai, Gabor},
+  title = {Deliberative, search-based mitigation strategies for model-based software health management},
+  journal = {Innovations in Systems and Software Engineering},
+  publisher = {Springer London},
+  year = {2013},
+  volume = {9},
+  number = {4},
+  pages = {293-318},
+  url = {http://dx.doi.org/10.1007/s11334-013-0215-x},
+  doi = {10.1007/s11334-013-0215-x}
+}
+</pre></td>
+</tr>
+<tr><td><h3>2011</h3></td></tr>
+
+<tr id="ACM_SPE:10" class="entry">
+	<td>Dubey A, Karsai G and Mahadevan N (2011). <i>A Component Model for Hard Real-time Systems: CCM wwith ARINC-653</i>.  Software: Practice and Experience.  Vol. 41(12), pp. 1517-1550. John Wiley &amp; Sons, Ltd.
+	<p class="infolinks">[<a href="javascript:toggleInfo('ACM_SPE:10','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('ACM_SPE:10','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1002/spe.1083" target="_blank">DOI</a>] [<a href="http://www.isis.vanderbilt.edu/sites/default/files/Journal_0.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_ACM_SPE:10" class="abstract noshow">
+	<td><b>Abstract</b>: The size and complexity of software in safety-critical systems is increasing at a rapid pace. One technology that can be used to mitigate this complexity is component-based software development. However, in spite of the apparent benefits of a component-based approach to development, little work has been done in applying these concepts to hard real-time systems. This paper improves the state of the art by making three contributions: (1) we present a component model for hard real-time systems and define the semantics of different types of component interactions; (2) we present an implementation of a middleware that supports this component model. This middleware combines an open-source CORBA Component Model (CCM) implementation (MICO) with ARINC-653: a state-of-the-art real-time operating systems (RTOS) standard, (3) finally; we describe a modeling environment that enables design, analysis, and deployment of component assemblies. We conclude with a discussion of the lessons learned during this exercise. Our experiences point toward extending both the CCM as well as revising the ARINC-653.</td>
+</tr>
+<tr id="bib_ACM_SPE:10" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{ACM_SPE:10,
+  author = {Dubey, Abhishek and Karsai, Gabor and Mahadevan, Nagabhushan},
+  title = {A Component Model for Hard Real-time Systems: CCM wwith ARINC-653},
+  journal = {Software: Practice and Experience},
+  publisher = {John Wiley &amp; Sons, Ltd},
+  year = {2011},
+  volume = {41},
+  number = {12},
+  pages = {1517--1550},
+  url = {http://www.isis.vanderbilt.edu/sites/default/files/Journal_0.pdf},
+  doi = {10.1002/spe.1083}
+}
+</pre></td>
+</tr>
+
+<tr id="book10" class="entry">
+	<td>Abdelwahed S, Dubey A, Karsai G and Mahadevan N (2011). <i>Machine learning and knowledge discovery for engineering systems health management</i>, November, 2011.  Chapman and Hall/CRC Press.
+	<p class="infolinks">[<a href="javascript:toggleInfo('book10','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('book10','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="abs_book10" class="abstract noshow">
+	<td><b>Abstract</b>: System-level detection, diagnosis, and mitigation of faults in complex systems that include physical components as well as software are essential to achieve high dependability. The paper introduces a model, referred to as the Timed Failure Propagation Graph (TFPG) that captures the causal propagation of observable fault effects in systems. Several algorithms based on this model have been developed, including: consistency-based centralized and distributed algorithms for multiple-fault fault source isolation in real-time, algorithms to calculate diagnosability metrics, and algorithms to prognosticate impending failures. The model and the associated algorithms are applicable to physical systems but recently they have been applied to component-based software systems as well, where similar fault propagation can take place. The paper describes the modeling paradigm, the algorithms developed, and how they were applied in a system and software context.</td>
+</tr>
+<tr id="bib_book10" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inbook{book10,
+  author = {Sherif Abdelwahed and Abhishek Dubey and Gabor Karsai and Nagabhushan Mahadevan},
+  editor = {Ashok Srivastava and Jiawei Han},
+  title = {Machine learning and knowledge discovery for engineering systems health management},
+  publisher = {Chapman and Hall/CRC Press},
+  year = {2011}
+}
+</pre></td>
+</tr>
+
+<tr id="mehrotra2011power" class="entry">
+	<td>Mehrotra R, Dubey A, Abdelwahed S and Tantawi A (2011). <i>A power-aware modeling and autonomic management framework for distributed computing systems</i>.  Handbook of Energy-Aware and Green Computing.  Vol. 2
+	<p class="infolinks"> [<a href="javascript:toggleInfo('mehrotra2011power','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_mehrotra2011power" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{mehrotra2011power,
+  author = {Mehrotra, Rajat and Dubey, Abhishek and Abdelwahed, Sherif and Tantawi, Asser},
+  title = {A power-aware modeling and autonomic management framework for distributed computing systems},
+  journal = {Handbook of Energy-Aware and Green Computing},
+  year = {2011},
+  volume = {2}
+}
+</pre></td>
+</tr>
+
+<tr id="nordstrom2011autonomic" class="entry">
+	<td>Nordstrom S, Dubey A, Keskinpala T, Neema S and Bapty T (2011). <i>Autonomic Healing of Model-Based Systems</i>.  Journal of Aerospace Computing, Information, and Communication.  Vol. 8(4), pp. 87-99.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('nordstrom2011autonomic','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.2514/1.31940" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_nordstrom2011autonomic" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{nordstrom2011autonomic,
+  author = {Nordstrom, Steve and Dubey, Abhishek and Keskinpala, Turker and Neema, Sandeep and Bapty, Theodore},
+  title = {Autonomic Healing of Model-Based Systems},
+  journal = {Journal of Aerospace Computing, Information, and Communication},
+  year = {2011},
+  volume = {8},
+  number = {4},
+  pages = {87--99},
+  doi = {10.2514/1.31940}
+}
+</pre></td>
+</tr>
+<tr><td><h3>2010</h3></td></tr>
+
+<tr id="1742-6596-219-7-072047" class="entry">
+	<td>Piccoli L, Dubey A, Simone JN and Kowalkowlski JB (2010). <i>LQCD workflow execution framework: Models, provenance and fault-tolerance</i>.  Journal of Physics: Conference Series.  Vol. 219(7), pp. 072047.
+	<p class="infolinks">[<a href="javascript:toggleInfo('1742-6596-219-7-072047','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('1742-6596-219-7-072047','bibtex')">BibTeX</a>] [<a href="http://stacks.iop.org/1742-6596/219/i=7/a=072047" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_1742-6596-219-7-072047" class="abstract noshow">
+	<td><b>Abstract</b>: Large computing clusters used for scientific processing suffer from systemic failures when operated over long continuous periods for executing workflows. Diagnosing job problems and faults leading to eventual failures in this complex environment is difficult, specifically when the success of whole workflow might be affected by a single job failure.<br>In this paper, we introduce a model-based, hierarchical, reliable execution framework that encompass workflow specification, data provenance, execution tracking and online monitoring of each workflow task, also referred to as participants. The sequence of participants is described in an abstract parameterized view, which is translated into a concrete data dependency based sequence of participants with defined arguments.<p>As participants belonging to a workflow are mapped onto machines and executed, periodic and on-demand monitoring of vital health parameters on allocated nodes is enabled according to pre-specified rules. These rules specify conditions that must be true pre-execution, during execution and post-execution.<p>Monitoring information for each participant is propagated upwards through the reflex and healing architecture, which consist of hierarchical network of decentralized fault management entities, called reflex engines. They are instantiated as state machines or timed automatons that change state and initiate reflexive mitigation action(s) upon occurrence of certain faults.<p>We describe how this cluster reliability framework is combined with the workflow execution framework using formal rules and actions specified within a structure of first order predicate logic that enables a dynamic management design that reduces manual administrative workload, and increases cluster-productivity. Preliminary results on a virtual setup with injection failures are shown.</td>
+</tr>
+<tr id="bib_1742-6596-219-7-072047" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{1742-6596-219-7-072047,
+  author = {Luciano Piccoli and Abhishek Dubey and James N Simone and James B Kowalkowlski},
+  title = {LQCD workflow execution framework: Models, provenance and fault-tolerance},
+  journal = {Journal of Physics: Conference Series},
+  year = {2010},
+  volume = {219},
+  number = {7},
+  pages = {072047},
+  url = {http://stacks.iop.org/1742-6596/219/i=7/a=072047}
+}
+</pre></td>
+</tr>
+<tr><td><h3>2009</h3></td></tr>
+
+<tr id="Dubey:2009:PMD:1639562.1639566" class="entry">
+	<td>Dubey A, Mehrotra R, Abdelwahed S and Tantawi A (2009). <i>Performance Modeling of Distributed Multi-tier Enterprise Systems</i>.  SIGMETRICS Perform. Eval. Rev.. New York, NY, USA, October, 2009.  Vol. 37(2), pp. 9-11. ACM.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Dubey:2009:PMD:1639562.1639566','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1145/1639562.1639566" target="_blank">DOI</a>] [<a href="http://doi.acm.org/10.1145/1639562.1639566" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Dubey:2009:PMD:1639562.1639566" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{Dubey:2009:PMD:1639562.1639566,
+  author = {Dubey, Abhishek and Mehrotra, Rajat and Abdelwahed, Sherif and Tantawi, Asser},
+  title = {Performance Modeling of Distributed Multi-tier Enterprise Systems},
+  journal = {SIGMETRICS Perform. Eval. Rev.},
+  publisher = {ACM},
+  year = {2009},
+  volume = {37},
+  number = {2},
+  pages = {9--11},
+  url = {http://doi.acm.org/10.1145/1639562.1639566},
+  doi = {10.1145/1639562.1639566}
+}
+</pre></td>
+</tr>
+<tr><td><h3>2007</h3></td></tr>
+
+<tr id="secondkey" class="entry">
+	<td>Dubey A, Nordstrom S, Keskinpala T, Neema S, Bapty T and Karsai G (2007). <i>Towards a verifiable real-time, autonomic, fault mitigation framework for large scale real-time systems</i>.  Innovations in Systems and Software Engineering.  Vol. 3(1), pp. 33-52. Springer-Verlag.
+	<p class="infolinks">[<a href="javascript:toggleInfo('secondkey','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('secondkey','bibtex')">BibTeX</a>] [<a href="http://dx.doi.org/10.1007/s11334-006-0015-7" target="_blank">DOI</a>] [<a href="http://www.isis.vanderbilt.edu/sites/default/files/Dubey_A_1_24_2007_Towards_a_.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_secondkey" class="abstract noshow">
+	<td><b>Abstract</b>: Designing autonomic fault responses is difficult, particularly in large-scale systems, as there is no single ‘perfect’ fault mitigation response to a given failure. The design of appropriate mitigation actions depend upon the goals and state of the application and environment. Strict time deadlines in real-time systems further exacerbate this problem. Any autonomic behavior in such systems must not only be functionally correct but should also conform to properties of liveness, safety and bounded time responsiveness. This paper details a real-time fault-tolerant framework, which uses a reflex and healing architecture to provide fault mitigation capabilities for large-scale real-time systems. At the heart of this architecture is a real-time reflex engine, which has a state-based failure management logic that can respond to both event- and time-based triggers. We also present a semantic domain for verifying properties of systems, which use this framework of real-time reflex engines. Lastly, a case study, which examines the details of such an approach, is presented.</td>
+</tr>
+<tr id="bib_secondkey" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{secondkey,
+  author = {Dubey, Abhishek and Nordstrom, Steve and Keskinpala, Turker and Neema, Sandeep and Bapty, Ted and Karsai, Gabor},
+  title = {Towards a verifiable real-time, autonomic, fault mitigation framework for large scale real-time systems},
+  journal = {Innovations in Systems and Software Engineering},
+  publisher = {Springer-Verlag},
+  year = {2007},
+  volume = {3},
+  number = {1},
+  pages = {33-52},
+  url = {http://www.isis.vanderbilt.edu/sites/default/files/Dubey_A_1_24_2007_Towards_a_.pdf},
+  doi = {10.1007/s11334-006-0015-7}
+}
+</pre></td>
+</tr>
+<tr><td><h3>2005</h3></td></tr>
+
+<tr id="lncs05" class="entry">
+	<td>Dubey A, Wu X, Su H and Koo TJ (2005). <i>Computation Platform for Automatic Analysis of Embedded Software Systems Using Model Based Approach</i>.  Lecture Notes in Computer Science., In ATVA.  Vol. 3707, pp. 114-128.
+	<p class="infolinks">[<a href="javascript:toggleInfo('lncs05','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('lncs05','bibtex')">BibTeX</a>] [<a href="http://www.isis.vanderbilt.edu/sites/default/files/Dubey_A_10_4_2005_Computatio.pdf" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="abs_lncs05" class="abstract noshow">
+	<td><b>Abstract</b>: In this paper, we describe a computation platform called ReachLab, which enables automatic analysis of embedded software systems that interact with continuous environment. Algorithms are used to specify how the state space of the system model should be explored in order to perform analysis. In ReachLab, both system models and analysis algorithm models are specified in the same framework using Hybrid System Analysis and Design Language (HADL), which is a meta-model based language. The platform allows the models of algorithms to be constructed hierarchically and promotes their reuse in constructing more complex algorithms. Moreover, the platform is designed in such a way that the concerns of design and implementation of analysis algorithms are separated. On one hand, the models of analysis algorithms are abstract and therefore the design of algorithms can be made independent of implementation details. On the other hand, translators are provided to automatically generate implementations from the models for computing analysis results based on computation kernels. Multiple computation kernels, which are based on specific computation tools such as d/dt and the Level Set toolbox, are supported and can be chosen to enable hybrid state space exploration. An example is provided to illustrate the design and implementation process in ReachLab.</td>
+</tr>
+<tr id="bib_lncs05" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@article{lncs05,
+  author = {Abhishek Dubey and Xianbin Wu and Hang Su and Takkuen John Koo},
+  title = {Computation Platform for Automatic Analysis of Embedded Software Systems Using Model Based Approach},
+  booktitle = {ATVA},
+  journal = {Lecture Notes in Computer Science},
+  year = {2005},
+  volume = {3707},
+  pages = {114-128},
+  url = {http://www.isis.vanderbilt.edu/sites/default/files/Dubey_A_10_4_2005_Computatio.pdf}
+}
+</pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+		</div>
+
+		<div id="footer">
+			<span class="shadow"></span>
+			<div>
+			<h5 align="center">Copyright 2015 by Abhishek Dubey. All rights reserved.</h5>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
