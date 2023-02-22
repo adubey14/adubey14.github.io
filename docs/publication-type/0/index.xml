@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>0 | Abhishek Dubey</title>
+    <link>https://abhishekdubey.bio/publication-type/0/</link>
+      <atom:link href="https://abhishekdubey.bio/publication-type/0/index.xml" rel="self" type="application/rss+xml" />
+    <description>0</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://abhishekdubey.bio/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>0</title>
+      <link>https://abhishekdubey.bio/publication-type/0/</link>
+    </image>
+    
+    <item>
+      <title>Decision Making in Non-Stationary Environments with Policy-Augmented Monte Carlo Tree Search</title>
+      <link>https://abhishekdubey.bio/publication/pettet-2022-decision/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/pettet-2022-decision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Designing Equitable Transit Networks</title>
+      <link>https://abhishekdubey.bio/publication/sophiefairtransit-2022-arxiv/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/sophiefairtransit-2022-arxiv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning based Proactive Control for Transmission Grid Resilience to Wildfire</title>
+      <link>https://abhishekdubey.bio/publication/proactivewildfire/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/proactivewildfire/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proceedings of the 16th Workshop on Adaptive and Reflective Middleware, ARM@Middleware 2017, Las Vegas, NV, USA, December 11 - 15, 2017</title>
+      <link>https://abhishekdubey.bio/publication/dubey-2017-a/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/dubey-2017-a/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>4 | Abhishek Dubey</title>
+    <link>https://abhishekdubey.bio/publication-type/4/</link>
+      <atom:link href="https://abhishekdubey.bio/publication-type/4/index.xml" rel="self" type="application/rss+xml" />
+    <description>4</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://abhishekdubey.bio/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>4</title>
+      <link>https://abhishekdubey.bio/publication-type/4/</link>
+    </image>
+    
+    <item>
+      <title>Model-Based Intent-Driven Adaptive Software (MIDAS)</title>
+      <link>https://abhishekdubey.bio/publication/karsai-2022-model/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/karsai-2022-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Collaborative Research Project to Coordinate the Data from the CRASH Predictive Analytics Program Between TDOT and TDOSHS</title>
+      <link>https://abhishekdubey.bio/publication/dot-61069-ds-1/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/dot-61069-ds-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Towards a Product Line of Heterogeneous Distributed Applications</title>
+      <link>https://abhishekdubey.bio/publication/pradhan-2015-a/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/pradhan-2015-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Towards a Self-adaptive Deployment and Configuration Infrastructure for Cyber-Physical Systems</title>
+      <link>https://abhishekdubey.bio/publication/pradhan-2014-b/</link>
+      <pubDate>Sun, 01 Jun 2014 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/pradhan-2014-b/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deliberative Reasoning in Software Health Management</title>
+      <link>https://abhishekdubey.bio/publication/mahadevan-2013-a/</link>
+      <pubDate>Mon, 01 Apr 2013 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/mahadevan-2013-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Formalization of a Component Model for Real-time Systems</title>
+      <link>https://abhishekdubey.bio/publication/dubey-2012-b/</link>
+      <pubDate>Sun, 01 Apr 2012 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/dubey-2012-b/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Inertial Measurement Unit Example: A Software Health Management Case Study</title>
+      <link>https://abhishekdubey.bio/publication/dubey-2012-c/</link>
+      <pubDate>Wed, 01 Feb 2012 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/dubey-2012-c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implementing Autonomic Computing Methods to Improve Attack Resilience in Web Services</title>
+      <link>https://abhishekdubey.bio/publication/4574/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4574/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RFDMon: A Real-Time and Fault-Tolerant Distributed System Monitoring Approach</title>
+      <link>https://abhishekdubey.bio/publication/4477/</link>
+      <pubDate>Sat, 01 Oct 2011 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4477/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Case Study On The Application of Software Health Management Techniques</title>
+      <link>https://abhishekdubey.bio/publication/mahadevan-2011-a/</link>
+      <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/mahadevan-2011-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Meta-Tools For Designing Scientific Workflow Management Systems: Part-I, Survey</title>
+      <link>https://abhishekdubey.bio/publication/saxena-2011/</link>
+      <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/saxena-2011/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Report On Simulating External Applications With SOAMANET in the Loop</title>
+      <link>https://abhishekdubey.bio/publication/4201/</link>
+      <pubDate>Sun, 01 Aug 2010 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4201/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Model Identification for Performance Management of Distributed Enterprise Systems</title>
+      <link>https://abhishekdubey.bio/publication/4181/</link>
+      <pubDate>Fri, 01 Jan 2010 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4181/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Towards Model-based Software Health Management for Real-Time Systems</title>
+      <link>https://abhishekdubey.bio/publication/4196/</link>
+      <pubDate>Fri, 01 Jan 2010 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4196/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Discussion on Supervisory Control Theory in Real-Time Discrete Event Systems</title>
+      <link>https://abhishekdubey.bio/publication/4136/</link>
+      <pubDate>Sun, 01 Nov 2009 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4136/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Towards a Real-time Component Framework for Software Health Management</title>
+      <link>https://abhishekdubey.bio/publication/4137/</link>
+      <pubDate>Sun, 01 Nov 2009 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4137/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resource-Aware Deployment and Configuration of Fault-tolerant Real-time Systems</title>
+      <link>https://abhishekdubey.bio/publication/4121/</link>
+      <pubDate>Thu, 01 Oct 2009 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/4121/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Towards Dynamic CPU Demand Estimation in Multi-Tiered Web Setup</title>
+      <link>https://abhishekdubey.bio/publication/swhm-31/</link>
+      <pubDate>Thu, 01 Jan 2009 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/swhm-31/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

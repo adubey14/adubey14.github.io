@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>6 | Abhishek Dubey</title>
+    <link>https://abhishekdubey.bio/publication-type/6/</link>
+      <atom:link href="https://abhishekdubey.bio/publication-type/6/index.xml" rel="self" type="application/rss+xml" />
+    <description>6</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://abhishekdubey.bio/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>6</title>
+      <link>https://abhishekdubey.bio/publication-type/6/</link>
+    </image>
+    
+    <item>
+      <title>Cyber-Physical Vulnerability Analysis of IoT Applications Using Multi-Modeling</title>
+      <link>https://abhishekdubey.bio/publication/baptydubeyjanos-2020/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/baptydubeyjanos-2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter Seven - Consensus mechanisms and information security technologies</title>
+      <link>https://abhishekdubey.bio/publication/zhang-2019/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/zhang-2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter Six - Testing at scale of IoT blockchain applications</title>
+      <link>https://abhishekdubey.bio/publication/walker-2019/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/walker-2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diagnosis in Cyber-Physical Systems with Fault Protection Assemblies</title>
+      <link>https://abhishekdubey.bio/publication/chhokra-2018/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/chhokra-2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Smart Decision Support System for Public Transit Operations</title>
+      <link>https://abhishekdubey.bio/publication/shekhar-2016/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/shekhar-2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Designing a Resilient Deployment and Reconfiguration Infrastructure for Remotely Managed Cyber-Physical Systems</title>
+      <link>https://abhishekdubey.bio/publication/pradhan-2016-c/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/pradhan-2016-c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fault-Adaptivity in Hard Real-Time Component-Based Software Systems</title>
+      <link>https://abhishekdubey.bio/publication/dubey-2010/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/dubey-2010/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A collaborative early-stage ship design environment</title>
+      <link>https://abhishekdubey.bio/publication/chalfant-2012/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/chalfant-2012/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Power-Aware Modeling and Autonomic Management Framework for Distributed Computing Systems</title>
+      <link>https://abhishekdubey.bio/publication/mehrotra-2012/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/mehrotra-2012/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Model-based Tools and Techniques for Real-Time System and Software Health Management</title>
+      <link>https://abhishekdubey.bio/publication/abdelwahed-2011/</link>
+      <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/abdelwahed-2011/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
