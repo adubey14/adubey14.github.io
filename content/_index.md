@@ -86,7 +86,7 @@ sections:
       #   Refer to https://wowchemy.com/docs/customization/#date-format
       date_format: Jan 2006
       items:
-        - title: CEO
+        - title: Founder
           company: Mobiusai.tech  
           company_url: ''
           company_logo: 
