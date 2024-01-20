@@ -33,6 +33,7 @@ sections:
     content:
       title: Impact and Highlights      
       text: |-
+       - Abhishek is the general co-chair of ICCPS 2024.       
        - Abhishek was awarded the [NSF Career grant](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2238815&HistoricalAwards=false) in January 2023.
        - Abhishek is the Program Co-Chair of ICCPS 2023 and General Chair of SmartComp 2023, two premier conferences in the areas of smart and connected communities and cyber-physical systems.
        - The Adviser framework based on the microtransit algorithms developed by our team won the [IJCAI 2022 Social Good Best Paper Award](https://engineering.vanderbilt.edu/news/2022/artificial-intelligence-researchers-win-international-social-good-award-for-tool-designed-to-optimize-childhood-vaccinations-in-nigeria/). The project is being piloted in Nigeria to help with vaccination program.
