@@ -189,6 +189,7 @@ sections:
     content:
       title: Students (Graduated)     
       text: |-
+       - Michael Wilbur. Ph.D. [Data-Driven Algorithms for Smart Transportation Systems](https://ir.vanderbilt.edu/handle/1803/17865). 2022.
        - Shreyas Ramakrishna. Ph.D. [Dynamic Safety Assurance of Autonomous Cyber-Physical Systems](https://ir.vanderbilt.edu/handle/1803/17763). 2022.
        - Ava Pettet. Ph.D. [Principled Algorithms for Real-time Sequential Decision Making for Large Scale. Cyber-Physical Systems](https://ir.vanderbilt.edu/handle/1803/17865). 2022. 
        - Scott Eisele. Ph.D. [Resolving Challenges in Multi-Stakeholder CPS Using Distributed Ledgers](https://ir.vanderbilt.edu/handle/1803/16398).  2020.
