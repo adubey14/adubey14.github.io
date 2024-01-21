@@ -1,5 +1,64 @@
 % Encoding: UTF-8
 
+@INPROCEEDINGS{10207607,
+  author={Ghosh, Purboday and Barua, Niloy and Krentz, Timothy and Karsai, Gabor and Dubey, Abhishek and Lukic, Srdjan},
+  booktitle={2023 IEEE International Conference on Smart Computing (SMARTCOMP)}, 
+  title={Distributed Control Application for Smart Grids using RIAPS}, 
+  year={2023},
+  abstract={The integration of computational capabilities with the electrical infrastructure of the grid can be envisioned as a societal scale Cyber Physical System (CPS). Middleware frameworks can act as a layer of abstraction that manages the interaction between disparate applications to facilitate intelligent control and management of energy production and consumption. This demonstration showcases Resilient Information Architecture Platform for Smart Grid (RIAPS), a distributed software platform that combines a domain specific modeling language with framework-level services such as communication, remote deployment of applications, distributed coordination, time synchronization, and fault tolerance, to develop and run distributed applications. An example of an energy demand curtailment scheme called load shedding is presented, to highlight how the RIAPS framework can be used to implement distributed algorithms to control elements of a power system, which runs as a simulation using OpenDSS.},
+  volume={},
+  number={},
+  pages={186-188},
+  doi={10.1109/SMARTCOMP58114.2023.00042}}
+
+@article{michael2023artificial,
+  title={Artificial Intelligence for Smart Transportation},
+  author={Michael, Wilbur and Sivagnanam, Amutheezan and Ayman, Afiya and Samaranayeke, Samitha and Laszka, Aron},
+  year={2023},
+  abstract={There are more than 7,000 public transit agencies in the U.S. (and many more private agencies), and together, they are responsible for serving 60 billion passenger miles each year. A well-functioning transit system fosters the growth and expansion of businesses, distributes social and economic benefits, and links the capabilities of community members, thereby enhancing what they can accomplish as a society. Since affordable public transit services are the backbones of many communities, this work investigates ways in which Artificial Intelligence (AI) can improve efficiency and increase utilization from the perspective of transit agencies. This book chapter discusses the primary requirements, objectives, and challenges related to the design of AI-driven smart transportation systems. We focus on three major topics. First, we discuss data sources and data. Second, we provide an overview of how AI can aid decision-making with a focus on transportation. Lastly, we discuss computational problems in the transportation domain and AI approaches to these problems.},
+  url={https://arxiv.org/abs/2308.07457}
+}
+@inproceedings{10.1145/3576841.3589625,
+author = {Wilbur, Michael and Coursey, Maxime and Koirala, Pravesh and Al-Quran, Zakariyya and Pugliese, Philip and Dubey, Abhishek},
+title = {Mobility-On-Demand Transportation: A System for Microtransit and Paratransit Operations},
+year = {2023},
+isbn = {9798400700361},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3576841.3589625},
+doi = {10.1145/3576841.3589625},
+abstract = {New rideshare and shared-mobility services have transformed urban mobility in recent years. Therefore, transit agencies are looking for ways to adapt to this rapidly changing environment. In this space, ridepooling has the potential to improve efficiency and reduce costs by allowing users to share rides in high-capacity vehicles and vans. Most transit agencies already operate various ridepooling services including microtransit and paratransit. However, the objectives and constraints for implementing these services vary greatly between agencies. This brings multiple challenges. First, off-the-shelf ridepooling formulations must be adapted for real-world conditions and constraints. Second, the lack of modular and reusable software makes it hard to implement and evaluate new ridepooling algorithms and approaches in real-world settings. Therefore, we propose an on-demand transportation scheduling software for microtransit and paratransit services. This software is aimed at transit agencies looking to incorporate state-of-the-art rideshare and ridepooling algorithms in their everyday operations. We provide management software for dispatchers and mobile applications for drivers and users. Lastly, we discuss the challenges in adapting state-of-the-art methods to real-world operations.},
+booktitle = {Proceedings of the ACM/IEEE 14th International Conference on Cyber-Physical Systems (with CPS-IoT Week 2023)},
+pages = {260–261},
+numpages = {2},
+keywords = {software, mobility-on-demand, ridepooling, transit operations},
+location = {San Antonio, TX, USA},
+series = {ICCPS '23}
+}
+@misc{pavia2023designing_abstract,
+  title = {Designing Equitable Transit Networks},
+  author = {Pavia, Sophie and Mori, J. Carlos Martinez and Sharma, Aryaman and Pugliese, Philip and Dubey, Abhishek and Samaranayake, Samitha and Mukhopadhyay, Ayan},
+  year = {2023},
+  abstract={Public transit is an essential infrastructure enabling access to employment, healthcare, education, and recreational facilities. While accessibility to transit is important in general, some sections of the population depend critically on transit. However, existing public transit is often not designed equitably, and often, equity is only considered as an additional objective post hoc, which hampers systemic changes. We present a formulation for transit network design that considers different notions of equity and welfare explicitly. We study the interaction between network design and various concepts of equity and present trade-offs and results based on real-world data from a large metropolitan area in the United States of America.},
+  journal = {INFORMS Transportation and Logistics Society Conference (extended abstract) (TSL)}
+}
+@inproceedings{baiting2023iccps,
+  title = {Dynamic Simplex: Balancing Safety and Performance in Autonomous Cyber Physical Systems},
+  author = {Luo, Baiting and Ramakrishna, Shreyas and Pettet, Ava and Kuhn, Christopher and Karsai, Gabor and Mukhopadhyay, Ayan},
+  year = {2023},
+  abstract={Learning Enabled Components (LEC) have greatly assisted cyber-physical systems in achieving higher levels of autonomy. However, LEC's susceptibility to dynamic and uncertain operating conditions is a critical challenge for the safety of these systems. Redundant controller architectures have been widely adopted for safety assurance in such contexts. These architectures augment LEC "performant" controllers that are difficult to verify with "safety" controllers and the decision logic to switch between them. While these architectures ensure safety, we point out two limitations. First, they are trained offline to learn a conservative policy of always selecting a controller that maintains the system's safety, which limits the system's adaptability to dynamic and non-stationary environments. Second, they do not support reverse switching from the safety controller to the performant controller, even when the threat to safety is no longer present. To address these limitations, we propose a dynamic simplex strategy with an online controller switching logic that allows two-way switching. We consider switching as a sequential decision-making problem and model it as a semi-Markov decision process. We leverage a combination of a myopic selector using surrogate models (for the forward switch) and a non-myopic planner (for the reverse switch) to balance safety and performance. We evaluate this approach using an autonomous vehicle case study in the CARLA simulator using different driving conditions, locations, and component failures. We show that the proposed approach results in fewer collisions and higher performance than state-of-the-art alternatives.},
+  booktitle = {Proceedings of the ACM/IEEE 14th International Conference on Cyber-Physical Systems (with CPS-IoT Week 2023)},
+  location = {San Antonio, TX, USA},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  series = {ICCPS '23},
+  pages = {177--186},
+  doi = {10.1145/3576841.3585934},
+  isbn = {9798400700361},
+  url = {https://doi.org/10.1145/3576841.3585934},
+  numpages = {10}
+}
+
 @techreport{karsai2022model,
   title       = {Model-Based Intent-Driven Adaptive Software (MIDAS)},
   author      = {Karsai, Gabor and Coglio, Alessandro and Dubey, Abhishek},
@@ -61,6 +120,99 @@
   journal   = {Electronic Proceedings in Theoretical Computer Science}
 }
 
+@article{pavia2023designing,
+  title = {Designing Equitable Transit Networks},
+  author = {Pavia, Sophie and Mori, J. Carlos Martinez and Sharma, Aryaman and Pugliese, Philip and Dubey, Abhishek and Samaranayake, Samitha and Mukhopadhyay, Ayan},
+  year = {2023},
+  journal = {ACM Conference on Equity and Access in Algorithms, Mechanisms, and Optimization (EAAMO)},
+  preprint = {https://arxiv.org/abs/2212.12007}
+}
+@INPROCEEDINGS{10207563,
+  author={Khaleghian, Seyedmehdi and Neema, Himanshu and Sartipi, Mina and Tran, Toan and Sen, Rishav and Dubey, Abhishek},
+  booktitle={2023 IEEE International Conference on Smart Computing (SMARTCOMP)}, 
+  title={Calibrating Real-World City Traffic Simulation Model Using Vehicle Speed Data}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={303-308},
+  doi={10.1109/SMARTCOMP58114.2023.00076}}
+@article{10.1145/3633784,
+author = {Senarath, Yasas and Mukhopadhyay, Ayan and Purohit, Hemant and Dubey, Abhishek},
+title = {Designing a Human-Centered AI Tool for Proactive Incident Detection Using Crowdsourced Data Sources to Support Emergency Response},
+year = {2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3633784},
+doi = {10.1145/3633784},
+abstract = {Time of incident reporting is a critical aspect of emergency response. However, the conventional approaches to receiving incident reports have time delays. Non-traditional sources such as crowdsourced data present an opportunity to detect incidents proactively. However, detecting incidents from such data streams is challenging due to inherent noise and data uncertainty. Naively maximizing detection accuracy can compromise spatial-temporal localization of inferred incidents, hindering response efforts. This paper presents a novel human-centered AI tool to address the above challenges. We demonstrate how crowdsourced data can aid incident detection while acknowledging associated challenges. We use an existing CROME framework to facilitate training and selection of best incident detection models, based on parameters suited for deployment. The human-centered AI tool provides a visual interface for exploring various measures to analyze the models for the practitioner’s needs, which could help the practitioners select the best model for their situation. Moreover, in this study, we illustrate the tool usage by comparing different models for incident detection. The experiments demonstrate that the CNN-based incident detection method can detect incidents significantly better than various alternative modeling approaches. In summary, this research demonstrates a promising application of human-centered AI tools for incident detection to support emergency response agencies.},
+note = {Just Accepted},
+journal = {Digit. Gov.: Res. Pract.},
+month = {nov},
+keywords = {Human-centered AI Tool, Crowdsourcing, Emergency Response, Incident Detection}
+}
+@article{10.1145/3603381,
+author = {Islam, Md. Jaminur and Talusan, Jose Paolo and Bhattacharjee, Shameek and Tiausas, Francis and Dubey, Abhishek and Yasumoto, Keiichi and Das, Sajal K.},
+title = {Scalable Pythagorean Mean Based Incident Detection in Smart Transportation Systems},
+year = {2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+issn = {2378-962X},
+url = {https://doi.org/10.1145/3603381},
+doi = {10.1145/3603381},
+abstract = {Modern smart cities need smart transportation solutions to quickly detect various traffic emergencies and incidents in the city to avoid cascading traffic disruptions. To materialize this, roadside units and ambient transportation sensors are being deployed to collect speed data that enables the monitoring of traffic conditions on each road segment. In this paper, we first propose a scalable data-driven anomaly-based traffic incident detection framework for a city-scale smart transportation system. Specifically, we propose an incremental region growing approximation algorithm for optimal Spatio-temporal clustering of road segments and their data; such that road segments are strategically divided into highly correlated clusters. The highly correlated clusters enable identifying a Pythagorean Mean-based invariant as an anomaly detection metric that is highly stable under no incidents but shows a deviation in the presence of incidents. We learn the bounds of the invariants in a robust manner such that anomaly detection can generalize to unseen events, even when learning from real noisy data. Second, using cluster-level detection, we propose a folded Gaussian classifier to pinpoint the particular segment in a cluster where the incident happened in an automated manner. We perform extensive experimental validation using mobility data collected from four cities in Tennessee, compare with the state-of-the-art ML methods, to prove that our method can detect incidents within each cluster in real-time and outperforms known ML methods.},
+note = {Just Accepted},
+journal = {ACM Trans. Cyber-Phys. Syst.},
+month = {jun},
+keywords = {Smart Transportation, Graph Algorithms, Anomaly Detection, Regression, Approximation Algorithm., Weakly Unsupervised Learning, Cluster Analysis, Incident Detection}
+}
+@article{luo2024act,
+      title={Act as You Learn: Adaptive Decision-Making in Non-Stationary Markov Decision Processes}, 
+      author={Baiting Luo and Yunuo Zhang and Abhishek Dubey and Ayan Mukhopadhyay},
+      year={2024},
+      abstract={A fundamental (and largely open) challenge in sequential decision-making is dealing with non-stationary environments, where exogenous environmental conditions change over time. Such problems are traditionally modeled as non-stationary Markov decision processes (NSMDP). However, existing approaches for decision-making in NSMDPs have two major shortcomings: first, they assume that the updated environmental dynamics at the current time are known (although future dynamics can change); and second, planning is largely pessimistic, i.e., the agent acts ``safely'' to account for the non-stationary evolution of the environment. We argue that both these assumptions are invalid in practice -- updated environmental conditions are rarely known, and as the agent interacts with the environment, it can learn about the updated dynamics and avoid being pessimistic, at least in states whose dynamics it is confident about. We present a heuristic search algorithm called \textit{Adaptive Monte Carlo Tree Search (ADA-MCTS)} that addresses these challenges. We show that the agent can learn the updated dynamics of the environment over time and then act as it learns, i.e., if the agent is in a region of the state space about which it has updated knowledge, it can avoid being pessimistic. To quantify ``updated knowledge,'' we disintegrate the aleatoric and epistemic uncertainty in the agent's updated belief and show how the agent can use these estimates for decision-making. We compare the proposed approach with the multiple state-of-the-art approaches in decision-making across multiple well-established open-source problems and empirically show that our approach is faster and highly adaptive without sacrificing safety.},
+      url={https://arxiv.org/abs/2401.01841},
+      journal={22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},      
+}
+
+
+@article{jpaamas2024,
+      title={Forecasting and Mitigating Disruptions in Public Bus Transit Services}, 
+      author={Chaeeun Han and Jose Paolo Talusan and Dan Freudberg and Ayan Mukhopadhyay and Abhishek Dubey and Aron Laszka},
+      year={2024},
+      journal={22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS)}
+}
+
+@article{yunuo24,
+      title={Decision Making in Non-Stationary Environments with Policy-Augmented Search}, 
+      author={Ava Pettet and Yunuo Zhang and Baiting Luo and Kyle Wray and Hendrik Baier and Aron Laszka and Abhishek Dubey and Ayan Mukhopadhyay},
+      year={2024},
+      abstract={Sequential decision-making under uncertainty is present in many important problems. Two popular approaches for tackling such problems are reinforcement learning and online search (e.g., Monte Carlo tree search). While the former learns a policy by interacting with the environment (typically done before execution), the latter uses a generative model of the environment to sample promising action trajectories at decision time. Decision-making is particularly challenging in non-stationary environments, where the environment in which an agent operates can change over time. Both approaches have shortcomings in such settings -- on the one hand, policies learned before execution become stale when the environment changes and relearning takes both time and computational effort. Online search, on the other hand, can return sub-optimal actions when there are limitations on allowed runtime. In this paper, we introduce \textit{Policy-Augmented Monte Carlo tree search} (PA-MCTS), which combines action-value estimates from an out-of-date policy with an online search using an up-to-date model of the environment. We prove theoretical results showing conditions under which PA-MCTS selects the one-step optimal action and also bound the error accrued while following PA-MCTS as a policy. We compare and contrast our approach with AlphaZero, another hybrid planning approach, and Deep Q Learning on several OpenAI Gym environments. Through extensive experiments, we show that under non-stationary settings with limited time constraints, PA-MCTS outperforms these baselines.},
+      journal={22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},    
+    note={Accepted as an extended abstract.}
+}
+
+
+@INPROCEEDINGS{10207610,
+  author={Bin Zulqarnain, Ammar and Gupta, Samir and Talusan, Jose Paolo and Freudberg, Dan and Pugliese, Philip and Mukhopadhyay, Ayan and Dubey, Abhishek},
+  booktitle={2023 IEEE International Conference on Smart Computing (SMARTCOMP)}, 
+  title={Addressing APC Data Sparsity in Predicting Occupancy and Delay of Transit Buses: A Multitask Learning Approach}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={17-24},
+  doi={10.1109/SMARTCOMP58114.2023.00020}}
+
+@INPROCEEDINGS{10207595,
+  author={Buckelew, Jacob and Basumallik, Sagnik and Sivaramakrishnan, Vasavi and Mukhopadhyay, Ayan and Srivastava, Anurag K. and Dubey, Abhishek},
+  booktitle={2023 IEEE International Conference on Smart Computing (SMARTCOMP)}, 
+  title={Synchrophasor Data Event Detection using Unsupervised Wavelet Convolutional Autoencoders}, 
+  year={2023},
+  volume={},
+  number={},
+  abstract={Timely and accurate detection of events affecting the stability and reliability of power transmission systems is crucial for safe grid operation. This paper presents an efficient unsupervised machine-learning algorithm for event detection using a combination of discrete wavelet transform (DWT) and convolutional autoencoders (CAE) with synchrophasor phasor measurements. These measurements are collected from a hardware-in-the-loop testbed setup equipped with a digital real-time simulator. Using DWT, the detail coefficients of measurements are obtained. Next, the decomposed data is then fed into the CAE that captures the underlying structure of the transformed data. Anomalies are identified when significant errors are detected between input samples and their reconstructed outputs. We demonstrate our approach on the IEEE-14 bus system considering different events such as generator faults, line-to-line faults, line-to-ground faults, load shedding, and line outages simulated on a real-time digital simulator (RTDS). The proposed implementation achieves a classification accuracy of 97.7%, precision of 98.0%, recall of 99.5%, F1 Score of 98.7%, and proves to be efficient in both time and space requirements compared to baseline approaches.},
+  pages={326-331},
+  doi={10.1109/SMARTCOMP58114.2023.00080}}
+
 @misc{sophiefairtransit2022arxiv,
   doi       = {10.48550/ARXIV.2212.12007},
   url       = {https://arxiv.org/abs/2212.12007},
@@ -75,6 +227,26 @@
   preprint  = {https://arxiv.org/abs/2212.12007},
   copyright = {arXiv.org perpetual, non-exclusive license}
 }
+@article{francis,
+author = {Tiausas, Francis and Yasumoto, Keiichi and Talusan, Jose Paolo and Yamana, Hayato and Yamaguchi, Hirozumi and Bhattacharjee, Shameek and Dubey, Abhishek and Das, Sajal K.},
+title = {HPRoP: Hierarchical Privacy-Preserving Route Planning for Smart Cities},
+year = {2023},
+issue_date = {October 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {7},
+number = {4},
+issn = {2378-962X},
+url = {https://doi.org/10.1145/3616874},
+doi = {10.1145/3616874},
+abstract = {Route Planning Systems (RPS) are a core component of autonomous personal transport systems essential for safe and efficient navigation of dynamic urban environments with the support of edge-based smart city infrastructure, but they also raise concerns about user route privacy in the context of both privately owned and commercial vehicles. Numerous high-profile data breaches in recent years have fortunately motivated research on privacy-preserving RPS, but most of them are rendered impractical by greatly increased communication and processing overhead. We address this by proposing an approach called Hierarchical Privacy-Preserving Route Planning (HPRoP), which divides and distributes the route-planning task across multiple levels and protects locations along the entire route. This is done by combining Inertial Flow partitioning, Private Information Retrieval (PIR), and Edge Computing techniques with our novel route-planning heuristic algorithm. Normalized metrics were also formulated to quantify the privacy of the source/destination points (endpoint location privacy) and the route itself (route privacy). Evaluation on a simulated road network showed that HPRoP reliably produces routes differing only by ≤ 20\% in length from optimal shortest paths, with completion times within ∼ 25 seconds, which is reasonable for a PIR-based approach. On top of this, more than half of the produced routes achieved near-optimal endpoint location privacy (∼ 1.0) and good route privacy (≥ 0.8).},
+journal = {ACM Trans. Cyber-Phys. Syst.},
+month = {oct},
+articleno = {27},
+numpages = {25},
+keywords = {route-planning algorithms, Route planning services, location privacy}
+}
+
 @article{wilbur2022_trr,
   author   = {Wilbur, Michael and Ayman,Afiya and Sivagnanam, Amutheezan and Ouyang, Anna and Poon, Vincent and Kabir, Riyan and Vadali, Abhiram and Pugliese, Philip and Freudberg, Daniel and Laszka, Aron and Dubey, Abhishek},
   title    = {Impact of COVID-19 on Public Transit Accessibility and Ridership},

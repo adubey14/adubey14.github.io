@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>book | Abhishek Dubey</title>
+    <link>https://abhishekdubey.bio/publication-type/book/</link>
+      <atom:link href="https://abhishekdubey.bio/publication-type/book/index.xml" rel="self" type="application/rss+xml" />
+    <description>book</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://abhishekdubey.bio/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>book</title>
+      <link>https://abhishekdubey.bio/publication-type/book/</link>
+    </image>
+    
+    <item>
+      <title>Proceedings of the 16th Workshop on Adaptive and Reflective Middleware, ARM@Middleware 2017, Las Vegas, NV, USA, December 11 - 15, 2017</title>
+      <link>https://abhishekdubey.bio/publication/dubey-2017-a/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/dubey-2017-a/</guid>
+      <description>&lt;p&gt;Add the &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; for the publication here using Markdown formatting.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

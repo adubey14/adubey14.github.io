@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smart Grid | Abhishek Dubey</title>
+    <link>https://abhishekdubey.bio/tag/smart-grid/</link>
+      <atom:link href="https://abhishekdubey.bio/tag/smart-grid/index.xml" rel="self" type="application/rss+xml" />
+    <description>Smart Grid</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://abhishekdubey.bio/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Smart Grid</title>
+      <link>https://abhishekdubey.bio/tag/smart-grid/</link>
+    </image>
+    
+    <item>
+      <title>Reinforcement-Learning-Based Proactive Control for Enabling Power Grid Resilience to Wildfire</title>
+      <link>https://abhishekdubey.bio/publication/wildfire/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://abhishekdubey.bio/publication/wildfire/</guid>
+      <description>&lt;p&gt;Add the &lt;strong&gt;full text&lt;/strong&gt; or &lt;strong&gt;supplementary notes&lt;/strong&gt; for the publication here using Markdown formatting.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
