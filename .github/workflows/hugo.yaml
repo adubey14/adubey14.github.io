@@ -45,10 +45,12 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Generate Publications
+      - name: Install academic
         run: |
-          pip3 install academic \
-          make publications
+          pip3 install academic
+      - name: Generate Publications
+        run: |          
+          academic import refs.bib content/publication/ --overwrite
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
