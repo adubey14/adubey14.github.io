@@ -1,0 +1,131 @@
+---
+title: 'VeriSolid for TRANSAX: Correct-by-Design Ethereum Smart Contracts for Energy
+  Trading'
+
+# Authors
+# A YAML list of author names
+# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
+# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
+authors:
+- Aron Laszka
+- Anastasia Mavridou
+- Scott Eisele
+- Emmanouela Statchtiari
+- Abhishek Dubey
+
+# Author notes (such as 'Equal Contribution')
+# A YAML list of notes for each author in the above `authors` list
+author_notes: []
+
+date: '2019-09-01'
+
+# Date to publish webpage (NOT necessarily Bibtex publication's date).
+publishDate: '2024-01-21T04:30:06.087451Z'
+
+# Publication type.
+# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+publication_types:
+- paper-conference
+
+# Publication name and optional abbreviated publication name.
+publication: '*First International Summer School on Security and Privacy for Blockchains
+  and Distributed Ledger Technologies, BDLT 2019, Vienna, Austria*'
+publication_short: ''
+
+doi: ''
+
+abstract: The adoption of blockchain based platforms is rising rapidly. Their popularity
+  is explained by their ability to maintain a distributed public ledger, providing
+  reliability, integrity, and auditability with- out a trusted entity. Recent platforms,
+  e.g., Ethereum, also act as distributed computing platforms and enable the creation
+  of smart contracts, i.e., software code that runs on the platform and automatically
+  executes and enforces the terms of a contract. Since smart contracts can perform
+  any computation, they allow the develop- ment of decentralized applications, whose
+  execution is safeguarded by the security properties of the underlying platform.
+  Due to their unique advantages, blockchain based platforms are envisioned to have
+  a wide range of applications, ranging from financial to the Internet-of-Things.
+  However, the trustworthiness of the platform guarantees only that a smart contract
+  is executed correctly, not that the code of the contract is correct. In fact, a
+  large number of contracts deployed in practice suffer from software vulnerabilities,
+  which are often introduced due to the semantic gap between the assumptions that
+  contract writers make about the underlying execution semantics and the actual semantics
+  of smart contracts. A recent automated analysis of 19,336 smart contracts deployed
+  in practice found that 8,333 of them suffered from at least one security issue.
+  Although this study was based on smart contracts deployed on the public Ethereum
+  blockchain, the analyzed security issues were largely plat- form agnostic.  Security
+  vulnerabilities in smart contracts present a serious issue for two main reasons.
+  Firstly, smart-contract bugs cannot be patched. By design, once a contract is deployed,
+  its func- tionality cannot be altered even by its creator. Secondly, once a faulty
+  or malicious transaction is recorded, it cannot be removed from the blockchain (“code
+  is law” principle). The only way to roll back a transaction is by performing a hard
+  fork of the blockchain, which requires consensus among the stakeholders and undermines
+  the trustworthiness of the platform. In light of this, it is crucial to ensure that
+  a smart contract is se- cure before deploying it and trusting it with significant
+  amounts of cryptocurrency. To this end, we present the VeriSolid framework for the
+  formal verification and generation of contracts that are specified using a transition-system
+  based model with rigorous operational semantics. VeriSolid provides an end-to-end
+  design framework, which combined with a Solidity code generator, allows the correct-
+  by-design development of Ethereum smart contracts. To the best of our knowledge,
+  VeriSolid is the first framework to promote a model- based, correctness-by-design
+  approach for  blockchain-based smart contracts. Properties established at any step
+  of the VeriSolid design flow are preserved in the resulting smart contracts, guaranteeing
+  their correctness. VeriSolid fully automates the process of verifica- tion and code
+  generation, while enhancing usability by providing easy-to-use graphical editors
+  for the specification of transition sys- tems and natural-like language templates
+  for the specification of formal properties. By performing verification early at
+  design time, VeriSolid provides a cost-effective approach since fixing bugs later
+  in the development process can be very expensive. Our verification approach can
+  detect typical vulnerabilities, but it may also detect any violation of required
+  properties. Since our tool applies verifi- cation at a high-level, it can provide
+  meaningful feedback to the developer when a property is not satisfied, which would
+  be much harder to do at bytecode level. We present the application of VeriSolid
+  on smart contracts used in Smart Energy Systems such as transactive energy platforms.
+  In particular, we used VeriSolid to design and generate the smart contract that
+  serves as the core of the TRANSAX blockchain-based platform for trading energy futures.
+  The designed smart contract allows energy producers and consumers to post offers
+  for selling and buying energy. Since optimally matching selling offers with buying
+  offers can be very expensive computationally, the contract relies on external solvers
+  to compute and submit solutions to the matching problem, which are then checked
+  by the contract.  Using VeriSolid, we defined a set of safety properties and we
+  were able to detect bugs after performing analysis with the NuSMV model checker.
+
+# Summary. An optional shortened abstract.
+summary: ''
+
+tags:
+- ''
+
+# Display this page in a list of Featured pages?
+featured: false
+
+# Links
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
+# Custom links (uncomment lines below)
+# links:
+# - name: Custom Link
+#   url: http://example.org
+
+# Publication image
+# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
+# Associated Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
+#   Otherwise, set `projects: []`.
+projects: []
+---
+
+Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.
