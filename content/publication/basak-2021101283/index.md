@@ -1,39 +1,36 @@
 ---
-# Documentation: https://wowchemy.com/docs/managing-content/
-
 title: Spatio-temporal AI inference engine for estimating hard disk reliability
-subtitle: ''
-summary: ''
+
+# Authors
+# A YAML list of author names
+# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
+# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - Sanchita Basak
 - Saptarshi Sengupta
 - Shi-Jie Wen
 - Abhishek Dubey
-tags:
-- ''
-categories: []
+
+# Author notes (such as 'Equal Contribution')
+# A YAML list of notes for each author in the above `authors` list
+author_notes: []
+
 date: '2021-01-01'
-lastmod: 2023-01-30T19:59:12-06:00
-featured: false
-draft: false
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
+# Date to publish webpage (NOT necessarily Bibtex publication's date).
+publishDate: '2024-01-21T04:06:32.610507Z'
 
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects: []
-publishDate: '2023-01-31T01:59:12.267521Z'
+# Publication type.
+# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
 publication_types:
-- '2'
+- article-journal
+
+# Publication name and optional abbreviated publication name.
+publication: '*Pervasive and Mobile Computing*'
+publication_short: ''
+
+doi: https://doi.org/10.1016/j.pmcj.2020.101283
+
 abstract: This paper focuses on building a spatio-temporal AI inference engine for
   estimating hard disk reliability. Most electronic systems such as hard disks routinely
   collect such reliability parameters in the field to monitor the health of the system.
@@ -60,9 +57,47 @@ abstract: This paper focuses on building a spatio-temporal AI inference engine f
   potential failures and start applying spatial anomaly detection methods on those
   disks. This helps us remove the false positives from the temporal prediction results
   and provide a tighter bound on the set of disks with impending failure.
-publication: '*Pervasive and Mobile Computing*'
-doi: https://doi.org/10.1016/j.pmcj.2020.101283
+
+# Summary. An optional shortened abstract.
+summary: ''
+
+tags:
+- ''
+
+# Display this page in a list of Featured pages?
+featured: false
+
+# Links
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
+# Custom links (uncomment lines below)
+# links:
+# - name: Custom Link
+#   url: http://example.org
+
+# Publication image
+# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
+# Associated Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
+#   Otherwise, set `projects: []`.
+projects: []
 links:
 - name: URL
   url: http://www.sciencedirect.com/science/article/pii/S1574119220301231
 ---
+
+Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

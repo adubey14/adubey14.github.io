@@ -1,40 +1,38 @@
 ---
-# Documentation: https://wowchemy.com/docs/managing-content/
-
 title: Diagnosis in Cyber-Physical Systems with Fault Protection Assemblies
-subtitle: ''
-summary: ''
+
+# Authors
+# A YAML list of author names
+# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
+# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - Ajay Chhokra
 - Abhishek Dubey
 - Nagabhushan Mahadevan
 - Saqib Hasan
 - Gabor Karsai
-tags:
-- ''
-categories: []
+
+# Author notes (such as 'Equal Contribution')
+# A YAML list of notes for each author in the above `authors` list
+author_notes: []
+
 date: '2018-01-01'
-lastmod: 2023-01-30T19:59:34-06:00
-featured: false
-draft: false
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
+# Date to publish webpage (NOT necessarily Bibtex publication's date).
+publishDate: '2024-01-21T04:06:33.727265Z'
 
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects: []
-publishDate: '2023-01-31T01:59:34.406459Z'
+# Publication type.
+# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
 publication_types:
-- '6'
+- chapter
+
+# Publication name and optional abbreviated publication name.
+publication: '*Diagnosability, Security and Safety of Hybrid Dynamic and Cyber-Physical
+  Systems*'
+publication_short: ''
+
+doi: 10.1007/978-3-319-74962-4_8
+
 abstract: Fault Protection Assemblies are used in cyber-physical systems for automated
   fault-isolation. These devices alter the mode of the system using locally available
   information in order to stop fault propagation. For example, in electrical networks
@@ -51,10 +49,47 @@ abstract: Fault Protection Assemblies are used in cyber-physical systems for aut
   of failures in the fault protection units. Using a simulated power system case study,
   we show that the combined approach is able to diagnose faults in both the plant
   and the protection devices.
-publication: '*Diagnosability, Security and Safety of Hybrid Dynamic and Cyber-Physical
-  Systems*'
-doi: 10.1007/978-3-319-74962-4_8
+
+# Summary. An optional shortened abstract.
+summary: ''
+
+tags:
+- ''
+
+# Display this page in a list of Featured pages?
+featured: false
+
+# Links
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
+# Custom links (uncomment lines below)
+# links:
+# - name: Custom Link
+#   url: http://example.org
+
+# Publication image
+# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
+# Associated Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
+#   Otherwise, set `projects: []`.
+projects: []
 links:
 - name: URL
   url: https://doi.org/10.1007/978-3-319-74962-4_8
 ---
+
+Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

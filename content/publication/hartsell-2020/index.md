@@ -1,9 +1,10 @@
 ---
-# Documentation: https://wowchemy.com/docs/managing-content/
-
 title: Workflow Automation for Cyber Physical System Development Processes
-subtitle: ''
-summary: ''
+
+# Authors
+# A YAML list of author names
+# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
+# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - Charles Hartsell
 - Nagabhushan Mahadevan
@@ -11,30 +12,27 @@ authors:
 - Ted Bapty
 - Abhishek Dubey
 - Gabor Karsai
-tags: []
-categories: []
+
+# Author notes (such as 'Equal Contribution')
+# A YAML list of notes for each author in the above `authors` list
+author_notes: []
+
 date: '2020-04-01'
-lastmod: 2023-01-30T19:59:15-06:00
-featured: false
-draft: false
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
+# Date to publish webpage (NOT necessarily Bibtex publication's date).
+publishDate: '2024-01-21T04:06:32.763497Z'
 
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects: []
-publishDate: '2023-01-31T01:59:14.878226Z'
+# Publication type.
+# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
 publication_types:
-- '1'
+- paper-conference
+
+# Publication name and optional abbreviated publication name.
+publication: '*2020 IEEE Workshop on Design Automation for CPS and IoT (DESTION)*'
+publication_short: ''
+
+doi: http://dx.doi.org/10.1109/DESTION50928.2020.00007
+
 abstract: 'Development of Cyber Physical Systems (CPSs) requires close interaction
   between developers with expertise in many domains to achieve ever-increasing demands
   for improved performance, reduced cost, and more system autonomy. Each engineering
@@ -47,6 +45,43 @@ abstract: 'Development of Cyber Physical Systems (CPSs) requires close interacti
   models in the Assurance-based Learning-enabled CPS (ALC) Toolchain. Several illustrative
   examples are provided which show how these workflow models are able to automate
   many time-consuming integration tasks previously performed manually by system developers. '
-publication: '*2020 IEEE Workshop on Design Automation for CPS and IoT (DESTION)*'
-doi: http://dx.doi.org/10.1109/DESTION50928.2020.00007
+
+# Summary. An optional shortened abstract.
+summary: ''
+
+tags: []
+
+# Display this page in a list of Featured pages?
+featured: false
+
+# Links
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
+# Custom links (uncomment lines below)
+# links:
+# - name: Custom Link
+#   url: http://example.org
+
+# Publication image
+# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
+# Associated Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
+#   Otherwise, set `projects: []`.
+projects: []
 ---
+
+Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

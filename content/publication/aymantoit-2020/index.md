@@ -1,10 +1,11 @@
 ---
-# Documentation: https://wowchemy.com/docs/managing-content/
-
 title: Data-Driven Prediction and Optimization of Energy Use for Transit Fleets of
   Electric and ICE Vehicles
-subtitle: ''
-summary: ''
+
+# Authors
+# A YAML list of author names
+# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
+# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - Afiya Ayman
 - Amutheezan Sivagnanam
@@ -12,30 +13,27 @@ authors:
 - Philip Pugliese
 - Abhishek Dubey
 - Aron Laszka
-tags: []
-categories: []
+
+# Author notes (such as 'Equal Contribution')
+# A YAML list of notes for each author in the above `authors` list
+author_notes: []
+
 date: '2020-01-01'
-lastmod: 2023-01-30T19:59:12-06:00
-featured: false
-draft: false
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
+# Date to publish webpage (NOT necessarily Bibtex publication's date).
+publishDate: '2024-01-21T04:06:32.630514Z'
 
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects: []
-publishDate: '2023-01-31T01:59:12.652941Z'
+# Publication type.
+# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
 publication_types:
-- '2'
+- article-journal
+
+# Publication name and optional abbreviated publication name.
+publication: '*ACM Transations of Internet Technology*'
+publication_short: ''
+
+doi: ''
+
 abstract: Due to the high upfront cost of electric vehicles, many public transit agencies
   can afford only mixed fleets of internal-combustion and electric vehicles. Optimizing
   the operation of such mixed fleets is challenging because it requires accurate trip-level
@@ -52,5 +50,43 @@ abstract: Due to the high upfront cost of electric vehicles, many public transit
   fixed-route transit trips. We propose an optimal integer program as well as efficient
   heuristic and meta-heuristic algorithms, demonstrating the scalability and performance
   of these algorithms numerically using the transit network of CARTA.
-publication: '*ACM Transations of Internet Technology*'
+
+# Summary. An optional shortened abstract.
+summary: ''
+
+tags: []
+
+# Display this page in a list of Featured pages?
+featured: false
+
+# Links
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
+# Custom links (uncomment lines below)
+# links:
+# - name: Custom Link
+#   url: http://example.org
+
+# Publication image
+# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
+# Associated Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
+#   Otherwise, set `projects: []`.
+projects: []
 ---
+
+Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

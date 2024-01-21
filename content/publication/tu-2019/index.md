@@ -1,10 +1,11 @@
 ---
-# Documentation: https://wowchemy.com/docs/managing-content/
-
 title: 'Resilient Information Architecture Platform for the Smart Grid (RIAPS): A
   Novel Open-Source Platform for Microgrid Control'
-subtitle: ''
-summary: ''
+
+# Authors
+# A YAML list of author names
+# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
+# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - H. Tu
 - Y. Du
@@ -12,31 +13,27 @@ authors:
 - Abhishek Dubey
 - S. Lukic
 - G. Karsai
-tags:
-- ''
-categories: []
+
+# Author notes (such as 'Equal Contribution')
+# A YAML list of notes for each author in the above `authors` list
+author_notes: []
+
 date: '2019-01-01'
-lastmod: 2023-01-30T19:59:28-06:00
-featured: false
-draft: false
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
+# Date to publish webpage (NOT necessarily Bibtex publication's date).
+publishDate: '2024-01-21T04:06:33.447536Z'
 
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects: []
-publishDate: '2023-01-31T01:59:28.576238Z'
+# Publication type.
+# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
 publication_types:
-- '2'
+- article-journal
+
+# Publication name and optional abbreviated publication name.
+publication: '*IEEE Transactions on Industrial Electronics*'
+publication_short: ''
+
+doi: 10.1109/TIE.2019.2952803
+
 abstract: Microgrids are seen as an effective way to achieve reliable, resilient,
   and efficient operation of the power distribution system. Core functions of the
   microgrid control system are defined by the IEEE standard 2030.7; however, the algorithms
@@ -53,6 +50,44 @@ abstract: Microgrids are seen as an effective way to achieve reliable, resilient
   algorithm capable of synchronized and proportional compensation of voltage unbalance
   using distributed generators. Test results show the effectiveness of the proposed
   control and the salient features of the RIAPS platform.
-publication: '*IEEE Transactions on Industrial Electronics*'
-doi: 10.1109/TIE.2019.2952803
+
+# Summary. An optional shortened abstract.
+summary: ''
+
+tags:
+- ''
+
+# Display this page in a list of Featured pages?
+featured: false
+
+# Links
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
+# Custom links (uncomment lines below)
+# links:
+# - name: Custom Link
+#   url: http://example.org
+
+# Publication image
+# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
+# Associated Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
+#   Otherwise, set `projects: []`.
+projects: []
 ---
+
+Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

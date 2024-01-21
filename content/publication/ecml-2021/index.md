@@ -1,10 +1,11 @@
 ---
-# Documentation: https://wowchemy.com/docs/managing-content/
-
 title: Energy and Emission Prediction for Mixed-Vehicle Transit Fleets Using Multi-Task
   and Inductive Transfer Learning
-subtitle: ''
-summary: ''
+
+# Authors
+# A YAML list of author names
+# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
+# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - Michael Wilbur
 - Ayan Mukhopadhyay
@@ -12,30 +13,28 @@ authors:
 - Philip Pugliese
 - Aron Laszka
 - Abhishek Dubey
-tags: []
-categories: []
+
+# Author notes (such as 'Equal Contribution')
+# A YAML list of notes for each author in the above `authors` list
+author_notes: []
+
 date: '2021-01-01'
-lastmod: 2023-01-30T19:59:10-06:00
-featured: false
-draft: false
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
+# Date to publish webpage (NOT necessarily Bibtex publication's date).
+publishDate: '2024-01-21T04:06:32.518030Z'
 
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
-projects: []
-publishDate: '2023-01-31T01:59:10.494869Z'
+# Publication type.
+# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
 publication_types:
-- '1'
+- paper-conference
+
+# Publication name and optional abbreviated publication name.
+publication: '*Joint European Conference on Machine Learning and Knowledge Discovery
+  in Databases*'
+publication_short: ''
+
+doi: ''
+
 abstract: Public transit agencies are focused on making their fixed-line bus systems
   more energy efficient by introducing electric (EV) and hybrid (HV) vehicles to their  eets.
   However, because of the high upfront cost of these vehicles, most agencies are tasked
@@ -56,6 +55,43 @@ abstract: Public transit agencies are focused on making their fixed-line bus sys
   agency, we also provide an online pipeline for joining the various sensor streams
   for  xed-line transit energy prediction. We find that our approach outperforms vehicle-specific
   baselines in both the MTL and ITL settings.
-publication: '*Joint European Conference on Machine Learning and Knowledge Discovery
-  in Databases*'
+
+# Summary. An optional shortened abstract.
+summary: ''
+
+tags: []
+
+# Display this page in a list of Featured pages?
+featured: false
+
+# Links
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
+# Custom links (uncomment lines below)
+# links:
+# - name: Custom Link
+#   url: http://example.org
+
+# Publication image
+# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
+# Associated Projects (optional).
+#   Associate this publication with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
+#   Otherwise, set `projects: []`.
+projects: []
 ---
+
+Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.
