@@ -1,11 +1,6 @@
 ---
 title: Rolling Horizon based Temporal Decomposition for the Offline Pickup and Delivery
   Problem with Time Windows
-
-# Authors
-# A YAML list of author names
-# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
-# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - Youngseo Kim
 - Danushka Edirimanna
@@ -14,28 +9,12 @@ authors:
 - Aron Laszka
 - Abhishek Dubey
 - Samitha Samaranayake
-
-# Author notes (such as 'Equal Contribution')
-# A YAML list of notes for each author in the above `authors` list
-author_notes: []
-
 date: '2023-01-01'
-
-# Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2024-01-21T04:43:20.991808Z'
-
-# Publication type.
-# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+publishDate: '2024-01-21T17:12:02.272145Z'
 publication_types:
 - paper-conference
-
-# Publication name and optional abbreviated publication name.
 publication: '*Proceedings of the 37th AAAI Conference on Artificial Intelligence
   (AAAI-23)*'
-publication_short: ''
-
-doi: ''
-
 abstract: The offline pickup and delivery problem with time windows (PDPTW) is a classical
   combinatorial optimization problem in the transportation community, which has proven
   to be very challenging computationally. Due to the complexity of the problem, practical
@@ -61,46 +40,8 @@ abstract: The offline pickup and delivery problem with time windows (PDPTW) is a
   is more scalable and can provide good solutions to problem instances of varying
   degrees of difficulty, while the baseline algorithm often fails to find a feasible
   solution within comparable compute times.
-
-# Summary. An optional shortened abstract.
-summary: ''
-
 tags:
 - Cyber physical Systems
 - Public Transportation
 - Artificial Intelligence
-
-# Display this page in a list of Featured pages?
-featured: false
-
-# Links
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-# Publication image
-# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects: []
 ---
-
-Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

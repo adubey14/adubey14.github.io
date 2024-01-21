@@ -6,4 +6,4 @@ commit:
 	git add docs
 
 publications:
-	academic import refs.bib content/publication/ --overwrite
+	academic import refs.bib content/publication/ --overwrite --compact

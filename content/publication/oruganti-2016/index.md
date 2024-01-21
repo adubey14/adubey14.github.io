@@ -1,37 +1,17 @@
 ---
 title: 'DelayRadar: A multivariate predictive model for transit systems'
-
-# Authors
-# A YAML list of author names
-# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
-# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
 - Aparna Oruganti
 - Fangzhou Sun
 - Hiba Baroud
 - Abhishek Dubey
-
-# Author notes (such as 'Equal Contribution')
-# A YAML list of notes for each author in the above `authors` list
-author_notes: []
-
 date: '2016-01-01'
-
-# Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2024-01-21T04:43:22.689710Z'
-
-# Publication type.
-# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+publishDate: '2024-01-21T17:12:03.835118Z'
 publication_types:
 - paper-conference
-
-# Publication name and optional abbreviated publication name.
 publication: '*2016 IEEE International Conference on Big Data, BigData 2016, Washington
   DC, USA, December 5-8, 2016*'
-publication_short: ''
-
 doi: 10.1109/BigData.2016.7840797
-
 abstract: 'Effective public transit operations are one of the fundamental requirements
   for a modern community. Recently, a number of transit agencies have started integrating
   automated vehicle locators in their fleet, which provides a real-time estimate of
@@ -51,47 +31,9 @@ abstract: 'Effective public transit operations are one of the fundamental requir
   explain more than 70% of the variance in the bus travel time and we can make future
   travel predictions with an out-of-sample error of 4.8 minutes with information on
   the bus schedule, traffic, and weather.'
-
-# Summary. An optional shortened abstract.
-summary: ''
-
 tags:
 - ''
-
-# Display this page in a list of Featured pages?
-featured: false
-
-# Links
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-# Publication image
-# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects: []
 links:
 - name: URL
   url: https://doi.org/10.1109/BigData.2016.7840797
 ---
-
-Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.
