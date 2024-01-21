@@ -45,14 +45,6 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Install academic
-        run: |
-          pip3 install academic==0.10.0
-      - name: Generate Publications
-        run: |          
-          academic import ${{ github.workspace }}/refs.bib ${{ github.workspace }}/content/publication/ --overwrite
-      - name: List Publications
-        run: ls -l
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
