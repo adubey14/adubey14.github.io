@@ -77,11 +77,13 @@ email: ''
 highlight_name: true
 ---
 Dr. Abhishek Dubey is an Associate Professor of Computer Engineering, Electrical Engineering, and Computer Science, as well as a Chancellor Faculty Fellow at Vanderbilt University. He directs the [**SCOPE Lab**](https://scopelab.ai) at the [Institute for Software-Integrated Systems](https://www.isis.vanderbilt.edu) and serves as a Senior Research Scientist within the institute. Dr. Dubey is currently on  a IPA assignment as a Program Director at the National Science Foundation, overseeing the Cyber-Physical Systems (CPS), Smart and Connected Communities (SCC), and Civic Innovation Challenge (CIVIC) programs.  
+{style="text-align: justify;"}
 
 His broad research interest is in the design and operation of decision procedures for **societal-scale Cyber-Physical Systems (CPS)** with a focus on transportation and mobility, emergency response, and electric infrastructure. His current work explores **non-stationarity and long-term impact**, investigating principled, non-myopic optimization methods that enhance resilience, performance, and assurance of cyber-physical systems. He currently leads **Smart and Connected Community research efforts** focusing on **design and optimization of public transit systems in Chattanooga, TN, and Nashville, TN**, through his group [smarttransit.ai](https://smarttransit.ai), as well as **emergency response system optimization** through [statresp.ai](https://statresp.ai).  Dr. Dubey’s work has been supported by organizations such as **NSF, NASA, DOE, ARPA-E, AFRL, DARPA, Nissan, Siemens, Cisco, and IBM**.  
-
+{style="text-align: justify;"}
 
 In addition to his academic research, Dr. Dubey has **co-founded [Mobius AI](https://mobiusai.tech)**, a company focused on bringing cutting-edge technology in **logistics and fleet management** to the market, bridging the gap between research and practical applications.  
+{style="text-align: justify;"}
 
 A recipient of the [**NSF CAREER Award (2022)**](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2238815&HistoricalAwards=false), Dr. Dubey has published [**over 200 articles**](https://scholar.google.com/citations?user=5J3w9OoAAAAJ&hl=en). He previously served as the **Director of Graduate Studies** for Vanderbilt’s Electrical Engineering and Computer Science Department. He holds a **Ph.D. and M.S. in Electrical Engineering** from Vanderbilt University and a **B.S. in Electrical Engineering** from the Indian Institute of Technology (Banaras Hindu University).  
 {style="text-align: justify;"}
