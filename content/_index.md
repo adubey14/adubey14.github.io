@@ -90,7 +90,15 @@ sections:
       #   Refer to https://wowchemy.com/docs/customization/#date-format
       date_format: Jan 2006
       items:
-        - title: Founder
+        - title: Program Director
+          company: National Science Foundation
+          company_url: 'https://nsf.gov'
+          company_logo:
+          location: Nashville, TN
+          date_start: '2024-11-18'
+          date_end: 
+          description: Program Director CISE focusing on Cyber Physical Systems,  Smart and Connected Community and CIVIC. 
+        - title: Co-Founder and Chief Science Officer
           company: Mobiusai.tech  
           company_url: ''
           company_logo: 
@@ -120,7 +128,7 @@ sections:
           company_logo:
           location: Nashville, TN
           date_start: '2022-04-01'
-          date_end: 
+          date_end:  '2024-11-18'
           description: Expert for smart and connected community and CIVIC programs
         - title: Assistant Professor of Computer Science, Computer Engineering and Electrical Engineering
           company: Vanderbilt University
