@@ -1,0 +1,34 @@
+---
+title: Traffic Anomaly Detection Via Conditional Normalizing Flow
+authors:
+- Zhuangwei Kang
+- Ayan Mukhopadhyay
+- Aniruddha Gokhale
+- Shijie Wen
+- Abhishek Dubey
+date: '2022-01-01'
+publishDate: '2025-02-20T03:16:28.872539Z'
+publication_types:
+- paper-conference
+publication: '*2022 IEEE 25th International Conference on Intelligent Transportation
+  Systems (ITSC)*'
+doi: 10.1109/ITSC55140.2022.9922061
+abstract: 'Traffic congestion anomaly detection is of paramount importance in intelligent
+  traffic systems. The goals of transportation agencies are two-fold: to monitor the
+  general traffic conditions in the area of interest and to locate road segments under
+  abnormal congestion states. Modeling congestion patterns can achieve these goals
+  for citywide roadways, which amounts to learning the distribution of multivariate
+  time series (MTS). However, existing works are either not scalable or unable to
+  capture the spatial-temporal information in MTS simultaneously. To this end, we
+  propose a principled and comprehensive framework consisting of a data-driven generative
+  approach that can perform tractable density estimation for detecting traffic anomalies.
+  Our approach first clusters segments in the feature space and then uses conditional
+  normalizing flow to identify anomalous temporal snapshots at the cluster level in
+  an unsupervised setting. Then, we identify anomalies at the segment level by using
+  a kernel density estimator on the anomalous cluster. Extensive experiments on synthetic
+  datasets show that our approach significantly outperforms several state-of-the-art
+  congestion anomaly detection and diagnosis methods in terms of Recall and F1-Score.
+  We also use the generative model to sample labeled data, which can train classifiers
+  in a supervised setting, alleviating the lack of labeled data for anomaly detection
+  in sparse settings.'
+---
