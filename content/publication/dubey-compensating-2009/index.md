@@ -1,0 +1,38 @@
+---
+title: Compensating for Timing Jitter in Computing Systems with General-Purpose Operating
+  Systems
+authors:
+- Abhishek Dubey
+- Gabor Karsai
+- Sherif Abdelwahed
+date: '2009-01-01'
+publishDate: '2025-02-20T03:16:30.516658Z'
+publication_types:
+- paper-conference
+publication: '*2009 IEEE International Symposium on Object/Component/Service-Oriented
+  Real-Time Distributed Computing, ISORC 2009, Tokyo, Japan, 17-20 March 2009*'
+doi: 10.1109/ISORC.2009.28
+abstract: Fault-tolerant frameworks for large scale computing clusters require sensor
+  programs, which are executed periodically to facilitate performance and fault management.
+  By construction, these clusters use general purpose operating systems such as Linux
+  that are built for best average case performance and do not provide deterministic
+  scheduling guarantees. Consequently, periodic applications show jitter in execution
+  times relative to the expected execution time. Obtaining a deterministic schedule
+  for periodic tasks in general purpose operating systems is difficult without using
+  kernel-level modifications such as RTAI and RTLinux. However, due to performance
+  and administrative issues kernel modification cannot be used in all scenarios. In
+  this paper, we address the problem of jitter compensation for periodic tasks that
+  cannot rely on modifying the operating system kernel. ; Towards that, (a) we present
+  motivating examples; (b) we present a feedback controller based approach that runs
+  in the user space and actively compensates periodic schedule based on past jitter;
+  This approach is platform-agnostic i.e. it can be used in different operating systems
+  without modification; and (c) we show through analysis and experiments that this
+  approach is platform-agnostic i.e. it can be used in different operating systems
+  without modification and also that it maintains a stable system with bounded total
+  jitter.
+tags:
+- performance
+links:
+- name: URL
+  url: https://doi.org/10.1109/ISORC.2009.28
+---

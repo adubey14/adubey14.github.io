@@ -1,0 +1,45 @@
+---
+title: Data-Driven Detection of Anomalies and Cascading Failures in Traffic Networks
+authors:
+- Sanchita Basak
+- Afiya Aman
+- Aron Laszka
+- Abhishek Dubey
+- Bruno Leao
+date: '2019-10-01'
+publishDate: '2025-02-20T03:16:29.548226Z'
+publication_types:
+- paper-conference
+publication: '*Proceedings of the 11th Annual Conference of the Prognostics and Health
+  Management Society (PHM)*'
+doi: https://doi.org/10.36001/phmconf.2019.v11i1.861
+abstract: Traffic networks are one of the most critical infrastructures for any community.
+  The increasing integration of smart and connected sensors in traffic networks provides
+  researchers with unique opportunities to study the dynamics of this critical community
+  infrastructure. Our focus in this paper is on the failure dynamics of traffic networks.
+  By failure, we mean in this domain the hindrance of the normal operation of a traffic
+  network due to cyber anomalies or physical incidents that cause cascaded congestion
+  throughout the network. We are specifically interested in analyzing the cascade
+  effects of traffic congestion caused by physical incidents, focusing on developing
+  mechanisms to isolate and identify the source of a congestion. To analyze failure
+  propagation, it is crucial to develop (a) monitors that can identify an anomaly
+  and (b) a model to capture the dynamics of anomaly propagation. In this paper, we
+  use real traffic data from Nashville, TN to demonstrate a novel anomaly detector
+  and a Timed Failure Propagation Graph based diagnostics mechanism. Our novelty lies
+  in the ability to capture the the spatial information and the interconnections of
+  the traffic network as well as the use of recurrent neural network architectures
+  to learn and predict the operation of a graph edge as a function of its immediate
+  peers, including both incoming and outgoing branches. Our results show that our
+  LSTM-based traffic-speed predictors attain an average mean squared error of 6.55times10$^textrm-4$
+  on predicting normalized traffic speed, while Gaussian Process Regression based
+  predictors attain a much higher average mean squared error of 1.78times10$^textrm-2$.
+  We are also able to detect anomalies with high precision and recall, resulting in
+  an AUC (Area Under Curve) of 0.8507 for the precision-recall curve. To study physical
+  traffic incidents, we augment the real data with simulated data generated using
+  SUMO, a traffic simulator. Finally, we analyzed the cascading effect of the congestion
+  propagation by formulating the problem as a Timed Failure Propagation Graph, which
+  led us in identifying the source of a failure/congestion accurately.
+tags:
+- transit
+- reliability
+---
