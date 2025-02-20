@@ -33,6 +33,9 @@ sections:
     content:
       title: Impact and Highlights      
       text: |-
+       - Our team won the institute director's award for the best community software deployment in Jan 2025. 
+       - Our team won the best paper award at ICCPS 2024       
+       - Abhishek was awarded the Chancellor Faculty Fellowship in 2024 
        - Abhishek is the general co-chair of ICCPS 2024.       
        - Abhishek was awarded the [NSF Career grant](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2238815&HistoricalAwards=false) in January 2023.
        - Abhishek is the Program Co-Chair of ICCPS 2023 and General Chair of SmartComp 2023, two premier conferences in the areas of smart and connected communities and cyber-physical systems.
