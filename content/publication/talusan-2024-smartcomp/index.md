@@ -1,0 +1,35 @@
+---
+title: 'OPTIMUS: Discrete Event Simulator for Vehicle-to-Building Charging Optimization'
+authors:
+- Jose Paolo Talusan
+- Rishav Sen
+- Aaron Kandel Ava Pettet
+- Yoshinori Suzue
+- Liam Pedersen
+- Ayan Mukhopadhyay
+- Abhishek Dubey
+date: '2024-06-01'
+publishDate: '2025-03-09T00:39:20.851861Z'
+publication_types:
+- paper-conference
+publication: '*2024 IEEE International Conference on Smart Computing (SMARTCOMP)*'
+abstract: The increasing popularity of electronic vehicles has spurred a demand for
+  EV charging infrastructure. In the United States alone, over 160,000 public and
+  private charging ports have been installed. This has stoked fear of potential grid
+  issues in the future. Meanwhile, companies, specifically building owners are also
+  seeing the opportunity to leverage EV batteries as energy stores to serve as buffers
+  against the electric grid. The main idea is to influence and control charging behavior
+  to provide a certain level of energy resiliency and demand responsiveness to the
+  building from grid events while ensuring that they meet the demands of EV users.  However,
+  managing and co-optimizing energy requirements of EVs and cost-saving measures of
+  building owners is a difficult task. First, user behavior and grid uncertainty contribute
+  greatly to the potential effectiveness of different policies.  Second, different
+  charger configurations can have drastically different effects on the cost. Therefore,
+  we propose a complete end-to-end discrete event simulator for vehicle-to-building
+  charging optimization. This software is aimed at building owners and EV manufacturers
+  such as Nissan, looking to deploy their charging stations with state-of-the-art
+  optimization algorithms. We provide a complete solution that allows the owners to
+  train, evaluate, introduce uncertainty, and benchmark policies on their datasets.
+  Lastly, we discuss the potential for extending our work with other vehicle-to-grid
+  deployments.
+---
